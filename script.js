@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const mainContent = document.getElementById('main-content');
+    const contentArea = document.getElementById('content-area');
     const materialNavigation = document.getElementById('material-navigation');
     let materialsData = {};
 
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderMaterialNavigation();
         } catch (error) {
             console.error('Error loading data:', error);
-            mainContent.innerHTML = `<p>Erreur lors du chargement des données: ${error.message}</p>`;
+            contentArea.innerHTML = `<p>Erreur lors du chargement des données: ${error.message}</p>`;
         }
     }
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to show a specific material page
     function showMaterialPage(materialKey) {
         // Remove active class from all pages and navigation links
-        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+        document.querySelectorAll('#content-area .page').forEach(page => page.classList.remove('active'));
         document.querySelectorAll('#material-list li').forEach(link => link.classList.remove('active'));
 
         // Add active class to the current navigation link
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             materialPage = document.createElement('section');
             materialPage.id = `page-${materialKey}`;
             materialPage.classList.add('page');
-            mainContent.appendChild(materialPage);
+            contentArea.appendChild(materialPage);
         }
 
         renderMaterialContent(materialKey, materialPage);
@@ -315,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultsSection = document.createElement('div');
             resultsSection.id = `results-${materialKey}`;
             resultsSection.classList.add('results-section');
-            document.getElementById(`page-${materialKey}`).appendChild(resultsSection);
+            document.getElementById(`page-${materialKey}`).appendChild(resultsSection); // Keep this line, it's correct for adding the results section
         }
         resultsSection.innerHTML = resultsHtml;
     };

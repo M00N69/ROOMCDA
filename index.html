@@ -11,37 +11,32 @@
 <body>
     <header class="hero-banner">
         <div class="hero-content">
-            <h1>Réglementation Matériaux au Contact des Denrées Alimentaires</h1>
-            <p>Guide interactif professionnel basé sur les réglementations UE et françaises</p>
+            <h1>Application de Réglementation des Matériaux au Contact des Denrées Alimentaires (MCDA)</h1>
+            <p>Trouvez rapidement les réglementations pertinentes pour vos matériaux en contact alimentaire.</p>
         </div>
     </header>
 
     <div class="app-container">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <a href="https://www.visipilot.com" target="_blank">
-                    <img src="https://raw.githubusercontent.com/M00N69/RAPPELCONSO/main/logo%2004%20copie.jpg" alt="Visipilot Logo" class="sidebar-logo">
-                </a>
+                <img src="https://github.com/M00N69/BUSCAR/blob/main/logo%2002%20copie.jpg?raw=true" alt="Visipilot Logo" class="sidebar-logo">
             </div>
             <div class="sidebar-content">
-                <h2><i class="fas fa-layer-group"></i> Matériaux</h2>
-                <ul id="material-list" class="fade-in">
-                    <!-- Les matériaux seront chargés ici par le script -->
+                <h2>Matériaux</h2>
+                <ul id="material-list">
+                    <!-- Material links will be dynamically loaded here by JavaScript -->
                 </ul>
             </div>
         </aside>
 
         <main class="content">
             <div id="content-area" class="fade-in">
-                <h2>Bienvenue dans l'outil MCDA</h2>
-                <div class="info-card">
-                    <h4><i class="fas fa-info-circle"></i> Comment utiliser cet outil</h4>
-                    <p>Sélectionnez un type de matériau dans la liste de gauche pour commencer l'analyse réglementaire. L'outil vous guidera à travers les questions pertinentes pour identifier les réglementations applicables, les risques potentiels et les exigences de conformité.</p>
-                </div>
-                <div class="info-card success">
-                    <h4><i class="fas fa-shield-alt"></i> Expertise Food Safety</h4>
-                    <p>Cet outil a été développé par des experts en sécurité alimentaire européenne pour vous accompagner dans vos analyses de conformité MCDA.</p>
-                </div>
+                <section id="welcome-page" class="page active">
+                    <h2>Bienvenue</h2>
+                    <p>Cette application vous guide à travers les réglementations applicables aux matériaux et objets destinés à entrer en contact avec des denrées alimentaires (MCDA).</p>
+                    <p>Sélectionnez un type de matériau dans le menu de gauche pour commencer.</p>
+                </section>
+                <!-- Dynamic content for questions and results will be loaded here -->
             </div>
         </main>
     </div>

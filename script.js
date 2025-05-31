@@ -1,637 +1,325 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const materialList = document.getElementById('material-list');
-    const contentArea = document.getElementById('content-area');
+    const mainContent = document.getElementById('main-content');
+    const materialNavigation = document.getElementById('material-navigation');
     let materialsData = {};
-    let currentMaterialKey = null;
-    let userSelections = {};
 
-    // Données complètes des matériaux (votre data.json complet)
-    const materialsDataComplete = {
-        "REG_1935_2004": {
-            "type": "Regulation",
-            "scope": "EU",
-            "name": "Règlement (CE) n° 1935/2004",
-            "summary": "Règlement cadre établissant les exigences générales pour tous les matériaux et objets destinés à entrer en contact avec des denrées alimentaires (MCDA) dans l'UE. Principes clés : inertie (Art. 3), Bonnes Pratiques de Fabrication (BPF), traçabilité, déclaration de conformité, étiquetage.",
-            "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32004R1935",
-            "details": "L'article 3 est fondamental : les MCDA ne doivent pas céder de constituants aux aliments en quantité susceptible de présenter un danger pour la santé humaine, d'entraîner une modification inacceptable de la composition des denrées, ou d'altérer leurs caractères organoleptiques. Le règlement prévoit l'adoption de mesures spécifiques pour certains groupes de matériaux (listés en Annexe I).",
-            "keywords": ["règlement cadre", "UE", "général", "inertie", "BPF", "traçabilité", "déclaration conformité", "étiquetage"]
-        },
-        "REG_2023_2006": {
-            "type": "Regulation",
-            "scope": "EU",
-            "name": "Règlement (CE) n° 2023/2006",
-            "summary": "Règlement sur les Bonnes Pratiques de Fabrication (BPF) pour les MCDA. S'applique à tous les secteurs et stades de fabrication, transformation et distribution (sauf production de substances de départ).",
-            "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32006R2023",
-            "details": "Exige la mise en place d'un système d'assurance qualité et d'un système de contrôle de la qualité documentés. Vise à assurer la qualité et la sécurité des MCDA tout au long de la chaîne d'approvisionnement.",
-            "keywords": ["BPF", "GMP", "UE", "fabrication", "qualité", "traçabilité"]
-        },
-        "plastiques": {
-            "name": "Plastiques",
-            "description": "Matériaux polymères largement utilisés pour l'emballage et les articles de cuisine.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006",
-                "REG_10_2011_CONSOL",
-                "REG_RECYCLE_PLAST_2022_1616"
-            ],
-            "risks": [
-                "RISK_MIGRATION_PLASTIQUES"
-            ],
-            "details": {
-                "REG_10_2011_CONSOL": {
-                    "type": "Regulation",
-                    "scope": "EU",
-                    "name": "Règlement (UE) n° 10/2011 consolidé (Plastiques MCDA)",
-                    "summary": "Règlement spécifique UE HARMONISÉ pour les matières plastiques destinées au contact alimentaire. Définit le champ d'application, la liste positive des substances autorisées (Annexe I), les limites de migration (LMG/LMS), les simulants, les conditions de test (Annexe V), les règles pour le multicouche/barrière fonctionnelle et les exigences de DoC (Annexe IV).",
-                    "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:02011R0010-20200923",
-                    "amendments_note": "Ce règlement est fréquemment amendé (15+ fois). Toujours vérifier la dernière version consolidée applicable.",
-                    "keywords": [
-                        "plastique", "plastic", "PIM", "10/2011", "règlement spécifique", "harmonisé", "LMS", "LMG", "Annexe I", "Annexe II", "Annexe IV", "Annexe V"
-                    ]
-                },
-                "REG_RECYCLE_PLAST_2022_1616": {
-                    "type": "Regulation",
-                    "scope": "EU",
-                    "name": "Règlement (UE) 2022/1616 (Plastiques Recyclés)",
-                    "summary": "Nouveau règlement UE pour les matières plastiques recyclées destinées au contact alimentaire. Remplace le Règl. (CE) 282/2008. Exige autorisation des procédés de recyclage par l'EFSA/Commission.",
-                    "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32022R1616",
-                    "details": "Ce règlement vise à assurer la sécurité des plastiques recyclés en contact avec les aliments. Il établit des règles strictes pour la collecte, le tri et le traitement du plastique recyclé, et impose que les procédés de recyclage soient évalués et autorisés par l'EFSA et la Commission européenne. L'utilisation d'une barrière fonctionnelle peut être requise pour limiter la migration de contaminants potentiels issus du recyclage.",
-                    "keywords": ["plastique recyclé", "2022/1616", "recyclage", "autorisation", "EFSA", "barrière fonctionnelle"]
-                },
-                "RISK_MIGRATION_PLASTIQUES": {
-                    "type": "Risk Information",
-                    "scope": "General",
-                    "name": "Risques Potentiels (Plastiques)",
-                    "summary": "Migration de monomères résiduels, additifs (phtalates, antioxydants), NIAS (Substances Non Intentionnellement Ajoutées). Mauvaise utilisation (chaleur excessive) peut aggraver. Microplastiques.",
-                    "details": [
-                        {"TypeRisque": "Monomères Résiduels", "Description": "Substances de base n'ayant pas complètement polymérisé (ex: styrène, formaldéhyde). Leur migration est limitée par les LMS."},
-                        {"TypeRisque": "Additifs", "Description": "Substances ajoutées pour améliorer les propriétés du plastique (ex: plastifiants comme les phtalates, antioxydants, stabilisants UV). Seuls les additifs listés et respectant les LMS sont autorisés."},
-                        {"TypeRisque": "NIAS", "Description": "Impuretés, produits de réaction ou de dégradation formés involontairement pendant la fabrication ou l'utilisation. Leur évaluation toxicologique est complexe et souvent nécessaire."},
-                        {"TypeRisque": "Microplastiques", "Description": "Petits fragments de plastique pouvant se détacher du matériau. Leur impact sur la santé est un sujet de recherche en cours."},
-                        {"TypeRisque": "Mauvaise Utilisation", "Description": "Utilisation du plastique dans des conditions non prévues (ex: chauffage excessif) peut augmenter significativement la migration de substances."}
-                    ],
-                    "keywords": ["plastique", "migration", "risque", "monomère", "additif", "phtalate", "BPA", "NIAS", "microplastique", "chaleur"]
-                },
-                "LMG_PLAST": {
-                    "type": "Limit",
-                    "limit_type": "LMG",
-                    "material_scope": ["plastiques"],
-                    "name": "Limite de Migration Globale (Plastiques)",
-                    "value": "10 mg/dm²",
-                    "alternative_value": "60 mg/kg d'aliment (pour nourrissons/jeunes enfants, ou si ratio S/V non connu)",
-                    "reference_id": "REG_10_2011_CONSOL",
-                    "reference_details": "Article 12",
-                    "keywords": ["LMG", "migration globale", "overall migration", "plastique", "limite"]
-                },
-                "TEST_SIMULANTS_PLAST_ANNEX3": {
-                    "type": "Test Condition",
-                    "material_scope": ["plastiques"],
-                    "name": "Simulants Alimentaires (Plastiques - Annexe III)",
-                    "summary": "L'Annexe III du Règl. 10/2011 définit les simulants à utiliser en fonction du type d'aliment.",
-                    "details_table": [
-                        { "Simulant": "A", "Composition": "Éthanol 10% (v/v)", "Usage": "Aliments aqueux (pH > 4.5)" },
-                        { "Simulant": "B", "Composition": "Acide Acétique 3% (m/v)", "Usage": "Aliments acides (pH ≤ 4.5)" },
-                        { "Simulant": "C", "Composition": "Éthanol 20% (v/v)", "Usage": "Aliments alcooliques (≤ 20% vol), aliments organiques/lipophiles" },
-                        { "Simulant": "D1", "Composition": "Éthanol 50% (v/v)", "Usage": "Aliments alcooliques (> 20% vol), huile dans eau" },
-                        { "Simulant": "D2", "Composition": "Huile végétale", "Usage": "Aliments gras (matières grasses libres)" },
-                        { "Simulant": "E", "Composition": "Oxyde de poly(2,6-diphényl-p-phénylène) / Tenax®", "Usage": "Aliments secs (tests LMS)" }
-                    ],
-                    "reference_id": "REG_10_2011_CONSOL",
-                    "reference_details": "Annexe III",
-                    "keywords": ["test", "simulant", "plastique", "Annexe III", "éthanol", "acide acétique", "huile végétale", "Tenax"]
-                }
+    // Function to load data.json
+    async function loadData() {
+        try {
+            const response = await fetch('data.json');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
             }
-        },
-        "metaux_alliages": {
-            "name": "Métaux et Alliages",
-            "description": "Utilisés dans les boîtes de conserve, ustensiles de cuisine, équipements de transformation.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006",
-                "COE_GUIDE_METAUX_2024",
-                "ARRETES_FR_METAUX"
-            ],
-            "risks": [
-                "RISK_MIGRATION_METAUX"
-            ],
-            "details": {
-                "COE_GUIDE_METAUX_2024": {
-                    "type": "Guidance",
-                    "scope": "CoE/EU Reference",
-                    "name": "Guide Technique EDQM Métaux et Alliages (2e éd. 2024)",
-                    "summary": "Référence technique clé du Conseil de l'Europe (EDQM) pour évaluer la sécurité des métaux et alliages. Complète la Résolution CM/Res(2020)9. Contient principes, LLS/SRL pour 21+ métaux, méthodes d'essai.",
-                    "link": "https://freepub.edqm.eu/publications",
-                    "details": "Ce guide, bien que non légalement contraignant au niveau de l'UE, est largement utilisé pour démontrer la conformité au principe d'inertie (Art. 3 du Règl. 1935/2004). Il fournit des Limites de Libération Spécifiques (LLS) pour de nombreux métaux (ex: Nickel, Chrome, Aluminium, Fer, Cuivre, Zinc, Plomb, Cadmium, Arsenic, Mercure). Les méthodes d'essai recommandées utilisent souvent l'acide citrique à 0,5% pour simuler les aliments acides, qui sont les plus corrosifs pour les métaux.",
-                    "keywords": ["EDQM", "Conseil Europe", "guide technique", "métal", "alliage", "LLS", "SRL", "test migration", "2024", "CM/Res(2020)9", "nickel", "chrome", "aluminium", "fer", "cuivre", "zinc", "plomb", "cadmium", "arsenic", "mercure"]
-                },
-                "RISK_MIGRATION_METAUX": {
-                    "type": "Risk Information",
-                    "scope": "General",
-                    "name": "Risques de Migration / Contamination (Métaux)",
-                    "summary": "Corrosion ou usure peuvent entraîner migration de métaux. Inox de mauvaise qualité (Ni, Cr), alliages cuivreux (Cu, Pb), plomb résiduel, aluminium en milieu acide.",
-                    "details": [
-                        {"Source": "Corrosion/Usure", "Risk": "La surface du métal peut se dégrader au contact de certains aliments (acides, salins), libérant des ions métalliques dans l'aliment. Le type d'alliage est crucial (ex: un inox avec moins de 13% de chrome est moins résistant à la corrosion)."},
-                        {"Source": "Composition de l'Alliage", "Risk": "Certains éléments présents dans l'alliage (ex: Nickel, Chrome, Cuivre, Plomb) peuvent migrer. Les LLS/SRL définissent les limites acceptables."},
-                        {"Source": "Plomb/Cadmium", "Risk": "Ces métaux lourds sont très toxiques et strictement limités. Ils peuvent être présents comme impuretés dans certains alliages ou soudures (particulièrement dans les anciens produits)."},
-                        {"Source": "Aluminium", "Risk": "La migration de l'aluminium est plus importante au contact d'aliments très acides (pH bas) ou très salins. L'anodisation peut réduire ce risque."},
-                        {"Source": "Revêtements", "Risk": "Si le métal est revêtu (ex: fer blanc étamé, aluminium verni), l'intégrité et la conformité du revêtement sont essentielles. Un revêtement endommagé peut exposer le métal sous-jacent et entraîner sa migration."}
-                    ],
-                    "keywords": ["métal", "migration", "risque", "corrosion", "nickel", "chrome", "plomb", "cadmium", "aluminium", "cuivre", "alliage", "revêtement"]
-                }
-            }
-        },
-        "ceramiques_verre": {
-            "name": "Céramiques et Verre",
-            "description": "Vaisselle, récipients de stockage, bouteilles.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006",
-                "DIR_84_500_CEE_MOD"
-            ],
-            "risks": [
-                "RISK_MIGRATION_CERAMIQUES_VERRES"
-            ],
-            "details": {
-                "DIR_84_500_CEE_MOD": {
-                    "type": "Regulation",
-                    "scope": "EU",
-                    "name": "Directive 84/500/CEE modifiée (par 2005/31/CE)",
-                    "summary": "Directive UE harmonisée spécifique aux objets céramiques (vaisselle, cuisson...) limitant la migration du Plomb (Pb) et du Cadmium (Cd). Exige une DoC spécifique.",
-                    "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:01984L0500-20050520",
-                    "scope_details": "Ne couvre PAS les céramiques techniques (ex: SiC, Si3N4, ZrO2) utilisées dans l'industrie. Concerne principalement faïence, grès, porcelaine...",
-                    "keywords": ["céramique", "ceramic", "plomb", "cadmium", "Pb", "Cd", "84/500", "directive", "vaisselle", "harmonisé"]
-                }
-            }
-        },
-        "papier_carton": {
-            "name": "Papier et Carton",
-            "description": "Emballages, sacs, filtres.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006",
-                "COE_GUIDE_PAPIER_CARTON",
-                "BFR_REC_XXXVI"
-            ],
-            "risks": [
-                "RISK_MIGRATION_PAPIER_CARTON"
-            ],
-            "details": {
-                "RISK_MIGRATION_PAPIER_CARTON": {
-                    "type": "Risk Information",
-                    "scope": "General",
-                    "name": "Risques de Migration / Contamination (Papier et Carton)",
-                    "summary": "Principaux risques: migration depuis papiers/cartons recyclés (huiles minérales, photoinitiateurs, autres contaminants). PFAS dans papiers traités anti-graisse. Formaldéhyde depuis colles.",
-                    "details": [
-                        {"Source": "Papier/Carton Recyclé", "Risk": "Les papiers/cartons recyclés peuvent contenir des contaminants issus de leur usage précédent (ex: encres d'impression, adhésifs, résidus chimiques). Les huiles minérales (MOSH/MOAH) et les photoinitiateurs sont des préoccupations majeures."},
-                        {"Source": "Traitements Chimiques", "Risk": "Migration de substances utilisées pour donner des propriétés spécifiques au papier/carton (ex: agents anti-graisse contenant des PFAS, agents de blanchiment, azurants optiques)."},
-                        {"Source": "Colles et Adhésifs", "Risk": "Migration de composants des colles utilisées dans la fabrication du carton ou l'assemblage des emballages (ex: formaldéhyde, acrylamide)."},
-                        {"Source": "Encres d'impression", "Risk": "Migration de composants de l'encre par 'set-off' ou perméation si l'encre n'est pas sur la face extérieure ou si une barrière n'est pas présente."},
-                        {"Source": "Microbiologique", "Risk": "Le papier/carton peut être un substrat pour la croissance microbienne si les conditions de stockage sont humides, pouvant entraîner la production de mycotoxines."}
-                    ],
-                    "keywords": ["papier", "carton", "migration", "risque", "MOSH", "MOAH", "photoinitiateur", "PFAS", "formaldéhyde", "encre", "recyclé", "contaminant"]
-                }
-            }
-        },
-        "caoutchoucs_elastomeres": {
-            "name": "Caoutchoucs et Élastomères",
-            "description": "Joints, tétines, sucettes, gants.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006",
-                "ARRETE_FR_2020_08_05_CAOUTCHOUC"
-            ],
-            "risks": [
-                "RISK_MIGRATION_CAOUTCHOUCS"
-            ],
-            "details": {
-                "ARRETE_FR_2020_08_05_CAOUTCHOUC": {
-                    "type": "Regulation",
-                    "scope": "FR",
-                    "name": "Arrêté FR du 5 août 2020 (Caoutchoucs et Élastomères)",
-                    "summary": "Réglementation française spécifique et détaillée pour les matériaux et objets en caoutchouc et les sucettes. Contient listes positives, restrictions, conditions de test et exigences DoC. Applicable depuis 1er juillet 2021.",
-                    "link": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042225149/",
-                    "keywords": ["arrêté", "france", "caoutchouc", "rubber", "liste positive", "LMS", "QMA", "test", "DoC", "2020"]
-                }
-            }
-        },
-        "bois": {
-            "name": "Bois",
-            "description": "Utilisé pour les planches à découper, ustensiles, emballages (caisses, tonneaux).",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006"
-            ],
-            "risks": [
-                "RISK_MIGRATION_BOIS"
-            ],
-            "details": {}
-        },
-        "actifs_intelligents": {
-            "name": "Matériaux Actifs et Intelligents",
-            "description": "Emballages qui interagissent activement avec l'aliment ou son environnement.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006",
-                "REG_450_2009"
-            ],
-            "risks": [
-                "RISK_MIGRATION_ACTIF_INTELLIGENT"
-            ],
-            "details": {}
-        },
-        "cellulose_regeneree": {
-            "name": "Pellicule de Cellulose Régénérée",
-            "description": "Utilisée pour les emballages de confiserie, fromages, viandes.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006",
-                "DIR_2007_42_CE"
-            ],
-            "risks": [
-                "RISK_MIGRATION_CELLULOSE"
-            ],
-            "details": {}
-        },
-        "silicones": {
-            "name": "Silicones",
-            "description": "Moules de cuisson, ustensiles, joints.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006",
-                "ARRETE_FR_1992_11_25_SILICONE"
-            ],
-            "risks": [
-                "RISK_MIGRATION_SILICONES"
-            ],
-            "details": {}
-        },
-        "textiles": {
-            "name": "Textiles",
-            "description": "Filtres, sacs, toiles d'essuyage.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006"
-            ],
-            "risks": [
-                "RISK_MIGRATION_TEXTILES"
-            ],
-            "details": {}
-        },
-        "vernis_revetements": {
-            "name": "Vernis et Revêtements",
-            "description": "Revêtements intérieurs de boîtes métalliques, emballages papier/carton.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006",
-                "REG_2018_213_BPA_VERNIS"
-            ],
-            "risks": [
-                "RISK_MIGRATION_VERNIS_REVET"
-            ],
-            "details": {}
-        },
-        "verre": {
-            "name": "Verre (seul)",
-            "description": "Bouteilles, bocaux, verres à boire (non décorés).",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006"
-            ],
-            "risks": [
-                "RISK_MIGRATION_VERRE"
-            ],
-            "details": {}
-        },
-        "cires": {
-            "name": "Cires",
-            "description": "Utilisées comme revêtements ou additifs (ex: papier paraffiné, revêtements de fromage).",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006"
-            ],
-            "risks": [
-                "RISK_MIGRATION_CIRES"
-            ],
-            "details": {}
-        },
-        "colles": {
-            "name": "Colles et Adhésifs",
-            "description": "Utilisés pour assembler les emballages multicouches, étiquettes.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006"
-            ],
-            "risks": [
-                "RISK_MIGRATION_COLLES"
-            ],
-            "details": {}
-        },
-        "encres": {
-            "name": "Encres d'Imprimerie",
-            "description": "Utilisées pour imprimer les informations sur les emballages.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006"
-            ],
-            "risks": [
-                "RISK_MIGRATION_ENCRES"
-            ],
-            "details": {}
-        },
-        "liege": {
-            "name": "Liège",
-            "description": "Bouchons, revêtements.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006"
-            ],
-            "risks": [
-                "RISK_MIGRATION_LIEGE"
-            ],
-            "details": {}
-        },
-        "resines_echangeuses_ions": {
-            "name": "Résines Échangeuses d'ions",
-            "description": "Utilisées pour la purification de l'eau et d'autres liquides alimentaires.",
-            "regulations": [
-                "REG_1935_2004",
-                "REG_2023_2006"
-            ],
-            "risks": [
-                "RISK_MIGRATION_RESINES_ECHANGE"
-            ],
-            "details": {}
+            materialsData = await response.json();
+            console.log('Data loaded:', materialsData);
+            renderMaterialNavigation();
+        } catch (error) {
+            console.error('Error loading data:', error);
+            mainContent.innerHTML = `<p>Erreur lors du chargement des données: ${error.message}</p>`;
         }
-    };
+    }
 
-    materialsData = materialsDataComplete;
-    populateMaterialList();
+    // Function to render material navigation in the sidebar
+    function renderMaterialNavigation() {
+        const ul = document.getElementById('material-list'); // Use the existing ul
+        ul.innerHTML = ''; // Clear previous content
 
-    // Questions adaptées selon le matériau
-    const questions = {
-        'plastiques_q1': {
-            id: 'plastiques_q1',
-            text: 'Est-ce du plastique recyclé ?',
-            options: [
-                { text: 'Oui', next: 'food_type_question' },
-                { text: 'Non', next: 'food_type_question' }
-            ]
-        },
-        'metaux_alliages_q1': {
-            id: 'metaux_alliages_q1',
-            text: 'Quel type de métal/alliage utilisez-vous ?',
-            options: [
-                { text: 'Acier Inoxydable', next: 'food_type_question' },
-                { text: 'Aluminium', next: 'food_type_question' },
-                { text: 'Autre Métal/Alliage', next: 'food_type_question' }
-            ]
-        },
-        'food_type_question': {
-            id: 'food_type_question',
-            text: 'Quel est le type d\'aliment en contact ?',
-            options: [
-                { text: 'Aqueux', next: 'contact_conditions_question' },
-                { text: 'Acide', next: 'contact_conditions_question' },
-                { text: 'Gras', next: 'contact_conditions_question' },
-                { text: 'Sec', next: 'contact_conditions_question' }
-            ]
-        },
-        'contact_conditions_question': {
-            id: 'contact_conditions_question',
-            text: 'Quelles sont les conditions de contact (température, durée) ?',
-            options: [
-                { text: 'Courtes et Froides (< 5°C, < 30 min)', next: 'display_results' },
-                { text: 'Longues et Tempérées (> 5°C, > 30 min)', next: 'display_results' },
-                { text: 'Haute Température (> 70°C)', next: 'display_results' }
-            ]
-        }
-    };
-
-    function populateMaterialList() {
-        materialList.innerHTML = '';
-        
-        // Filtrer les matériaux (exclure les réglementations seules)
-        const materialKeys = Object.keys(materialsData).filter(key => {
-            const item = materialsData[key];
-            return item && item.name && item.description && !item.type;
-        });
-
-        materialKeys.sort((a, b) => materialsData[a].name.localeCompare(materialsData[b].name));
-
-        materialKeys.forEach(materialKey => {
+        for (const materialKey in materialsData) {
             const material = materialsData[materialKey];
-            const listItem = document.createElement('li');
-            listItem.textContent = material.name;
-            listItem.setAttribute('data-material-key', materialKey);
-            materialList.appendChild(listItem);
-        });
-
-        materialList.querySelectorAll('li').forEach(item => {
-            item.addEventListener('click', handleMaterialClick);
-        });
+            const li = document.createElement('li');
+            li.textContent = material.name;
+            li.dataset.materialKey = materialKey;
+            li.addEventListener('click', () => {
+                showMaterialPage(materialKey);
+            });
+            ul.appendChild(li);
+        }
     }
 
-    function handleMaterialClick(event) {
-        const materialKey = event.target.getAttribute('data-material-key');
-        materialList.querySelectorAll('li').forEach(item => item.classList.remove('active'));
-        event.target.classList.add('active');
-        displayMaterialContent(materialKey);
+    // Function to show a specific material page
+    function showMaterialPage(materialKey) {
+        // Remove active class from all pages and navigation links
+        document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+        document.querySelectorAll('#material-list li').forEach(link => link.classList.remove('active'));
+
+        // Add active class to the current navigation link
+        const currentNavLink = document.querySelector(`#material-list li[data-material-key="${materialKey}"]`);
+        if (currentNavLink) {
+            currentNavLink.classList.add('active');
+        }
+
+        let materialPage = document.getElementById(`page-${materialKey}`);
+        if (!materialPage) {
+            materialPage = document.createElement('section');
+            materialPage.id = `page-${materialKey}`;
+            materialPage.classList.add('page');
+            mainContent.appendChild(materialPage);
+        }
+
+        renderMaterialContent(materialKey, materialPage);
+        materialPage.classList.add('active');
     }
 
-    function displayMaterialContent(materialKey) {
-        currentMaterialKey = materialKey;
-        contentArea.innerHTML = '';
-
+    // Function to render content for a specific material
+    function renderMaterialContent(materialKey, pageElement) {
         const material = materialsData[materialKey];
-        const title = document.createElement('h2');
-        title.innerHTML = `<i class="fas fa-cube"></i> ${material.name}`;
-        contentArea.appendChild(title);
-
-        if (material.description) {
-            const description = document.createElement('div');
-            description.className = 'info-card';
-            description.innerHTML = `<p>${material.description}</p>`;
-            contentArea.appendChild(description);
-        }
-
-        userSelections = {};
-        userSelections[materialKey] = material.name;
-
-        if (materialKey === 'plastiques') {
-            displayQuestion('plastiques_q1');
-        } else if (materialKey === 'metaux_alliages') {
-            displayQuestion('metaux_alliages_q1');
-        } else {
-            displayQuestion('food_type_question');
-        }
-    }
-
-    function displayQuestion(questionId) {
-        const question = questions[questionId];
-        if (!question) {
-            console.error('Question not found:', questionId);
-            contentArea.innerHTML += '<h2>Erreur dans le questionnaire.</h2>';
+        if (!material) {
+            pageElement.innerHTML = `<h2>Matériau non trouvé</h2><p>Les informations pour "${materialKey}" ne sont pas disponibles.</p>`;
             return;
         }
 
-        const questionContainer = document.createElement('div');
-        questionContainer.className = 'question-container fade-in';
-        questionContainer.innerHTML = `
-            <div class="question-title">${question.text}</div>
-            <ul class="options-list"></ul>
+        let htmlContent = `<h2>${material.name}</h2>`;
+
+        // Display general regulations if available
+        if (material.general_regulations && material.general_regulations.length > 0) {
+            htmlContent += `<div class="info-card"><h4>Réglementations Générales</h4><ul class="styled-list">`;
+            material.general_regulations.forEach(reg => {
+                htmlContent += `<li><strong>${reg.name}:</strong> ${reg.description} ${reg.link ? `<a href="${reg.link}" target="_blank" class="external-link"><i class="fas fa-external-link-alt"></i></a>` : ''}</li>`;
+            });
+            htmlContent += `</ul></div>`;
+        }
+
+        // Display specific regulations if available
+        if (material.specific_regulations && material.specific_regulations.length > 0) {
+            htmlContent += `<div class="info-card"><h4>Réglementations Spécifiques</h4><ul class="styled-list">`;
+            material.specific_regulations.forEach(reg => {
+                htmlContent += `<li><strong>${reg.name}:</strong> ${reg.description} ${reg.link ? `<a href="${reg.link}" target="_blank" class="external-link"><i class="fas fa-external-link-alt"></i></a>` : ''}</li>`;
+            });
+            htmlContent += `</ul></div>`;
+        }
+
+        // Display national regulations if available
+        if (material.national_regulations && material.national_regulations.length > 0) {
+            htmlContent += `<div class="info-card"><h4>Réglementations Nationales (France)</h4><ul class="styled-list">`;
+            material.national_regulations.forEach(reg => {
+                htmlContent += `<li><strong>${reg.name}:</strong> ${reg.description} ${reg.link ? `<a href="${reg.link}" target="_blank" class="external-link"><i class="fas fa-external-link-alt"></i></a>` : ''}</li>`;
+            });
+            htmlContent += `</ul></div>`;
+        }
+
+        // Display risks if available
+        if (material.risks && material.risks.length > 0) {
+            htmlContent += `<div class="info-card warning"><h4>Risques Associés</h4><ul class="styled-list">`;
+            material.risks.forEach(risk => {
+                htmlContent += `<li>${risk}</li>`;
+            });
+            htmlContent += `</ul></div>`;
+        }
+
+        // Display migration limits if available
+        if (material.migration_limits && material.migration_limits.length > 0) {
+            htmlContent += `<div class="info-card"><h4>Limites de Migration (LMG/LMS)</h4><ul class="styled-list">`;
+            material.migration_limits.forEach(limit => {
+                htmlContent += `<li><strong>${limit.name}:</strong> ${limit.value} - ${limit.notes}</li>`;
+            });
+            htmlContent += `</ul></div>`;
+        }
+
+        // Display norms/standards if available
+        if (material.norms_standards && material.norms_standards.length > 0) {
+            htmlContent += `<div class="info-card"><h4>Normes et Standards</h4><ul class="styled-list">`;
+            material.norms_standards.forEach(norm => {
+                htmlContent += `<li><strong>${norm.name}:</strong> ${norm.description} ${norm.link ? `<a href="${norm.link}" target="_blank" class="external-link"><i class="fas fa-external-link-alt"></i></a>` : ''}</li>`;
+            });
+            htmlContent += `</ul></div>`;
+        }
+
+        // Add conditional questions if available
+        if (material.questions && material.questions.length > 0) {
+            htmlContent += `<h3>Questions Spécifiques au Matériau</h3>`;
+            material.questions.forEach((question, index) => {
+                htmlContent += `
+                    <div class="question-container" data-question-id="q-${materialKey}-${index}">
+                        <div class="question-title">${question.text}</div>
+                        <ul class="options-list">
+                            ${question.options.map(option => `<li class="option-item" data-value="${option.value}">${option.text}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+            });
+        }
+
+        // Add global questions for food type and contact conditions
+        htmlContent += `
+            <h3>Type d'Aliment et Conditions de Contact</h3>
+            <div class="question-container">
+                <div class="question-title">Type d'aliment :</div>
+                <ul class="options-list" id="food-type-options">
+                    <li class="option-item" data-value="aqueux">Aqueux (eau, jus, lait)</li>
+                    <li class="option-item" data-value="acide">Acide (fruits, vinaigre)</li>
+                    <li class="option-item" data-value="gras">Gras (huiles, beurre)</li>
+                    <li class="option-item" data-value="sec">Sec (céréales, pâtes)</li>
+                </ul>
+            </div>
+            <div class="question-container">
+                <div class="question-title">Température de contact (°C) :</div>
+                <input type="number" id="contact-temperature" class="form-input" value="20">
+            </div>
+            <div class="question-container">
+                <div class="question-title">Durée de contact (heures) :</div>
+                <input type="number" id="contact-duration" class="form-input" value="24">
+            </div>
+            <button class="btn btn-primary" onclick="processMaterialQuestions('${materialKey}')">Afficher les Réglementations</button>
         `;
 
-        const optionsList = questionContainer.querySelector('.options-list');
+        pageElement.innerHTML = htmlContent;
 
-        question.options.forEach(option => {
-            const listItem = document.createElement('li');
-            listItem.className = 'option-item';
-            listItem.textContent = option.text;
-            listItem.addEventListener('click', () => handleAnswer(question.id, option.text, option.next));
-            optionsList.appendChild(listItem);
+        // Add event listeners for new option items
+        pageElement.querySelectorAll('.options-list .option-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const parentOptionsList = this.closest('.options-list');
+                parentOptionsList.querySelectorAll('.option-item').forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                // Store the selected value in a data attribute on the parent question container
+                const questionContainer = this.closest('.question-container');
+                if (questionContainer) {
+                    questionContainer.dataset.selectedValue = this.dataset.value;
+                }
+            });
+        });
+    }
+
+    // Helper function to check if an item applies based on food type
+    function appliesToFoodType(item, foodType) {
+        if (!item.food_type_impact || item.food_type_impact.includes('all')) {
+            return true;
+        }
+        return item.food_type_impact.includes(foodType);
+    }
+
+    // Helper function to check if an item applies based on contact conditions
+    function appliesToContactConditions(item, temperature, duration) {
+        if (!item.contact_conditions_impact || item.contact_conditions_impact.includes('all')) {
+            return true;
+        }
+        const temp = parseInt(temperature);
+        const dur = parseInt(duration);
+
+        // Example logic: if a regulation is for prolonged contact, and duration is short, it doesn't apply
+        if (item.contact_conditions_impact.includes('prolonged_contact') && dur < 24) {
+            return false;
+        }
+        // Example logic: if a regulation is for high temperature, and temp is low, it doesn't apply
+        if (item.contact_conditions_impact.includes('high_temperature') && temp < 70) { // Assuming high temp > 70C
+            return false;
+        }
+        return true;
+    }
+
+    // Helper function to check if an item applies based on material-specific answers
+    function appliesToMaterialSpecificQuestions(item, materialAnswers) {
+        if (item.applies_if_recycled && materialAnswers.recycled !== 'oui') {
+            return false;
+        }
+        if (item.applies_if_stainless_steel && materialAnswers.metal_type !== 'acier_inoxydable') {
+            return false;
+        }
+        if (item.applies_if_aluminum && materialAnswers.metal_type !== 'aluminium') {
+            return false;
+        }
+        if (item.applies_if_treated && materialAnswers.treated !== 'oui') {
+            return false;
+        }
+        if (item.applies_if_decorated && materialAnswers.decorated !== 'oui') {
+            return false;
+        }
+        if (item.applies_if_printed_coated && materialAnswers.printed_coated !== 'oui') {
+            return false;
+        }
+        // Add more conditions for other material-specific questions
+        return true;
+    }
+
+    // Function to process all questions and display results
+    window.processMaterialQuestions = (materialKey) => {
+        const material = materialsData[materialKey];
+        if (!material) return;
+
+        let materialAnswers = {};
+        // Collect material-specific question answers from data-selected-value
+        document.querySelectorAll(`#page-${materialKey} .question-container[data-question-id]`).forEach(container => {
+            const questionId = container.dataset.questionId;
+            const selectedValue = container.dataset.selectedValue;
+            if (selectedValue) {
+                // Extract the question type from the questionId (e.g., 'q-plastiques-0' -> 'recycled')
+                if (materialKey === 'plastiques') {
+                    if (questionId.endsWith('-0')) materialAnswers.recycled = selectedValue;
+                    if (questionId.endsWith('-1')) materialAnswers.plastic_type = selectedValue;
+                } else if (materialKey === 'metaux') {
+                    if (questionId.endsWith('-0')) materialAnswers.metal_type = selectedValue;
+                } else if (materialKey === 'bois') {
+                    if (questionId.endsWith('-0')) materialAnswers.treated = selectedValue;
+                } else if (materialKey === 'ceramiques' || materialKey === 'verre') {
+                    if (questionId.endsWith('-0')) materialAnswers.decorated = selectedValue;
+                } else if (materialKey === 'papier_carton') {
+                    if (questionId.endsWith('-0')) materialAnswers.recycled = selectedValue;
+                    if (questionId.endsWith('-1')) materialAnswers.printed_coated = selectedValue;
+                }
+            }
         });
 
-        contentArea.appendChild(questionContainer);
-    }
+        // Collect global food type and contact conditions
+        const foodType = document.querySelector('#food-type-options .option-item.active')?.dataset.value || '';
+        const contactTemperature = document.getElementById('contact-temperature').value;
+        const contactDuration = document.getElementById('contact-duration').value;
 
-    function handleAnswer(currentQuestionId, answer, nextStep) {
-        userSelections[currentQuestionId] = answer;
+        let resultsHtml = `<h3>Réglementations et Informations Pertinentes</h3>`;
 
-        const lastQuestion = contentArea.querySelector('.question-container:last-of-type');
-        if (lastQuestion) {
-            const options = lastQuestion.querySelectorAll('.option-item');
-            options.forEach(opt => {
-                opt.style.pointerEvents = 'none';
-                opt.style.opacity = '0.6';
-                if (opt.textContent === answer) {
-                    opt.style.background = 'var(--primary-color)';
-                    opt.style.color = 'white';
-                    opt.style.opacity = '1';
-                }
-            });
-        }
+        const filterAndDisplay = (items, title, cardClass = '') => {
+            const filteredItems = items.filter(item =>
+                appliesToFoodType(item, foodType) &&
+                appliesToContactConditions(item, contactTemperature, contactDuration) &&
+                appliesToMaterialSpecificQuestions(item, materialAnswers)
+            );
 
-        setTimeout(() => {
-            if (nextStep === 'display_results') {
-                displayResults();
-            } else if (questions[nextStep]) {
-                displayQuestion(nextStep);
-            } else {
-                displayResults();
+            if (filteredItems.length > 0) {
+                resultsHtml += `<div class="info-card ${cardClass}"><h4>${title}</h4><ul class="styled-list">`;
+                filteredItems.forEach(item => {
+                    resultsHtml += `<li><strong>${item.name}:</strong> ${item.description} ${item.link ? `<a href="${item.link}" target="_blank" class="external-link"><i class="fas fa-external-link-alt"></i></a>` : ''} ${item.value ? `- ${item.value}` : ''} ${item.notes ? `- ${item.notes}` : ''}</li>`;
+                });
+                resultsHtml += `</ul></div>`;
             }
-        }, 300);
-    }
+        };
 
-    function displayResults() {
-        const resultsContainer = document.createElement('div');
-        resultsContainer.className = 'fade-in';
-        resultsContainer.style.marginTop = '2rem';
+        filterAndDisplay(material.general_regulations || [], 'Réglementations Générales');
+        filterAndDisplay(material.specific_regulations || [], 'Réglementations Spécifiques');
+        filterAndDisplay(material.national_regulations || [], 'Réglementations Nationales (France)');
 
-        const material = materialsData[currentMaterialKey];
-
-        let resultsHtml = '<h3><i class="fas fa-clipboard-check"></i> Analyse de Conformité</h3>';
-
-        // Réglementations applicables
-        if (material.regulations && material.regulations.length > 0) {
-            resultsHtml += `
-                <div class="info-card success">
-                    <h4><i class="fas fa-gavel"></i> Réglementations Applicables</h4>
-                    <ul class="styled-list">
-            `;
-
-            material.regulations.forEach(regKey => {
-                const regulation = materialsData[regKey] || material.details?.[regKey];
-                if (regulation) {
-                    resultsHtml += `<li><strong>${regulation.name} (${regulation.scope})</strong>: ${regulation.summary}`;
-                    if (regulation.link) {
-                        resultsHtml += ` <a href="${regulation.link}" target="_blank" class="external-link"><i class="fas fa-external-link-alt"></i></a>`;
-                    }
-                    resultsHtml += '</li>';
-                }
-            });
-
-            resultsHtml += '</ul></div>';
-        }
-
-        // Risques potentiels
+        // Risks are generally always relevant, but can be filtered if specific conditions are added to data.json
         if (material.risks && material.risks.length > 0) {
-            resultsHtml += `
-                <div class="info-card warning">
-                    <h4><i class="fas fa-exclamation-triangle"></i> Risques Potentiels</h4>
-                    <ul class="styled-list">
-            `;
-
-            material.risks.forEach(riskKey => {
-                const risk = material.details?.[riskKey];
-                if (risk) {
-                    resultsHtml += `<li><strong>${risk.name}</strong>: ${risk.summary}</li>`;
-                }
+            resultsHtml += `<div class="info-card warning"><h4>Risques Associés</h4><ul class="styled-list">`;
+            material.risks.forEach(risk => {
+                // For now, risks are not filtered by food type/contact conditions unless specified in data.json
+                resultsHtml += `<li>${risk}</li>`;
             });
-
-            resultsHtml += '</ul></div>';
+            resultsHtml += `</ul></div>`;
         }
 
-        // Détails spécifiques
-        if (material.details) {
-            for (const detailKey in material.details) {
-                if (material.regulations.includes(detailKey) || material.risks.includes(detailKey)) {
-                    continue;
-                }
+        filterAndDisplay(material.migration_limits || [], 'Limites de Migration (LMG/LMS)');
+        filterAndDisplay(material.norms_standards || [], 'Normes et Standards');
 
-                const detail = material.details[detailKey];
-                resultsHtml += `
-                    <div class="info-card">
-                        <h4><i class="fas fa-info-circle"></i> ${detail.name}</h4>
-                        <p>${detail.summary}</p>
-                `;
-
-                if (detail.details_table) {
-                    resultsHtml += '<div class="table-wrapper"><table><thead><tr>';
-                    
-                    if (detail.details_table.length > 0) {
-                        Object.keys(detail.details_table[0]).forEach(header => {
-                            resultsHtml += `<th>${header}</th>`;
-                        });
-                        resultsHtml += '</tr></thead><tbody>';
-
-                        detail.details_table.forEach(rowData => {
-                            resultsHtml += '<tr>';
-                            Object.values(rowData).forEach(cellData => {
-                                resultsHtml += `<td>${cellData}</td>`;
-                            });
-                            resultsHtml += '</tr>';
-                        });
-                        resultsHtml += '</tbody></table></div>';
-                    }
-                }
-
-                if (detail.keywords) {
-                    resultsHtml += '<div class="keyword-tags">';
-                    detail.keywords.slice(0, 8).forEach(keyword => {
-                        resultsHtml += `<span class="keyword-tag">${keyword}</span>`;
-                    });
-                    resultsHtml += '</div>';
-                }
-
-                resultsHtml += '</div>';
-            }
-        }
-
-        // Actions recommandées
+        // Display selected food type and contact conditions
         resultsHtml += `
             <div class="info-card">
-                <h4><i class="fas fa-tasks"></i> Actions Recommandées</h4>
-                <ol class="styled-list">
-                    <li>Demander la déclaration de conformité au fournisseur</li>
-                    <li>Vérifier la composition du matériau selon les listes positives</li>
-                    <li>Planifier les tests de migration selon les conditions d'usage</li>
-                    <li>Documenter l'analyse de risque complète</li>
-                    <li>Assurer la traçabilité et les bonnes pratiques de fabrication</li>
-                </ol>
+                <h4>Conditions de Contact Saisies</h4>
+                <ul class="styled-list">
+                    <li><strong>Type d'aliment:</strong> ${foodType || 'Non spécifié'}</li>
+                    <li><strong>Température de contact:</strong> ${contactTemperature}°C</li>
+                    <li><strong>Durée de contact:</strong> ${contactDuration} heures</li>
+                </ul>
             </div>
         `;
 
-        resultsContainer.innerHTML = resultsHtml;
-        contentArea.appendChild(resultsContainer);
-    }
+        let resultsSection = document.getElementById(`results-${materialKey}`);
+        if (!resultsSection) {
+            resultsSection = document.createElement('div');
+            resultsSection.id = `results-${materialKey}`;
+            resultsSection.classList.add('results-section');
+            document.getElementById(`page-${materialKey}`).appendChild(resultsSection);
+        }
+        resultsSection.innerHTML = resultsHtml;
+    };
+
+    // Initial data load
+    loadData();
 });

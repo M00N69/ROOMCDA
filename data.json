@@ -1,0 +1,1648 @@
+{
+  "REG_1935_2004": {
+    "type": "Regulation",
+    "scope": "EU",
+    "name": "Règlement (CE) n° 1935/2004",
+    "summary": "Règlement cadre établissant les exigences générales pour tous les matériaux et objets destinés à entrer en contact avec des denrées alimentaires (MCDA) dans l'UE. Principes clés : inertie (Art. 3), Bonnes Pratiques de Fabrication (BPF), traçabilité, déclaration de conformité, étiquetage.",
+    "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32004R1935",
+    "details": "L'article 3 est fondamental : les MCDA ne doivent pas céder de constituants aux aliments en quantité susceptible de présenter un danger pour la santé humaine, d'entraîner une modification inacceptable de la composition des denrées, ou d'altérer leurs caractères organoleptiques. Le règlement prévoit l'adoption de mesures spécifiques pour certains groupes de matériaux (listés en Annexe I).",
+    "keywords": ["règlement cadre", "UE", "général", "inertie", "BPF", "traçabilité", "déclaration conformité", "étiquetage"]
+  },
+  "REG_2023_2006": {
+    "type": "Regulation",
+    "scope": "EU",
+    "name": "Règlement (CE) n° 2023/2006",
+    "summary": "Règlement sur les Bonnes Pratiques de Fabrication (BPF) pour les MCDA. S'applique à tous les secteurs et stades de fabrication, transformation et distribution (sauf production de substances de départ).",
+    "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32006R2023",
+    "details": "Exige la mise en place d'un système d'assurance qualité et d'un système de contrôle de la qualité documentés. Vise à assurer la qualité et la sécurité des MCDA tout au long de la chaîne d'approvisionnement.",
+    "keywords": ["BPF", "GMP", "UE", "fabrication", "qualité", "traçabilité"]
+  },
+  "plastiques": {
+    "name": "Plastiques",
+    "description": "Matériaux polymères largement utilisés pour l'emballage et les articles de cuisine.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "REG_10_2011_CONSOL",
+      "REG_RECYCLE_PLAST_2022_1616"
+    ],
+    "risks": [
+      "RISK_MIGRATION_PLASTIQUES"
+    ],
+    "details": {
+      "REG_10_2011_CONSOL": {
+        "type": "Regulation",
+        "scope": "EU",
+        "name": "Règlement (UE) n° 10/2011 consolidé (Plastiques MCDA)",
+        "summary": "Règlement spécifique UE HARMONISÉ pour les matières plastiques destinées au contact alimentaire. Définit le champ d'application, la liste positive des substances autorisées (Annexe I), les limites de migration (LMG/LMS), les simulants, les conditions de test (Annexe V), les règles pour le multicouche/barrière fonctionnelle et les exigences de DoC (Annexe IV).",
+        "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:02011R0010-20200923",
+        "amendments_note": "Ce règlement est fréquemment amendé (15+ fois). Toujours vérifier la dernière version consolidée applicable.",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              10,
+              15,
+              19,
+              23,
+              25,
+              43
+            ]
+          }
+        ],
+        "keywords": [
+          "plastique",
+          "plastic",
+          "PIM",
+          "10/2011",
+          "règlement spécifique",
+          "harmonisé",
+          "LMS",
+          "LMG",
+          "Annexe I",
+          "Annexe II",
+          "Annexe IV",
+          "Annexe V"
+        ]
+      },
+      "REG_RECYCLE_PLAST_2022_1616": {
+        "type": "Regulation",
+        "scope": "EU",
+        "name": "Règlement (UE) 2022/1616 (Plastiques Recyclés)",
+        "summary": "Nouveau règlement UE pour les matières plastiques recyclées destinées au contact alimentaire. Remplace le Règl. (CE) 282/2008. Exige autorisation des procédés de recyclage par l'EFSA/Commission.",
+        "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32022R1616",
+        "details": "Ce règlement vise à assurer la sécurité des plastiques recyclés en contact avec les aliments. Il établit des règles strictes pour la collecte, le tri et le traitement du plastique recyclé, et impose que les procédés de recyclage soient évalués et autorisés par l'EFSA et la Commission européenne. L'utilisation d'une barrière fonctionnelle peut être requise pour limiter la migration de contaminants potentiels issus du recyclage.",
+        "keywords": ["plastique recyclé", "2022/1616", "recyclage", "autorisation", "EFSA", "barrière fonctionnelle"]
+      },
+      "RISK_MIGRATION_PLASTIQUES": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques Potentiels (Plastiques)",
+        "summary": "Migration de monomères résiduels, additifs (phtalates, antioxydants), NIAS (Substances Non Intentionnellement Ajoutées). Mauvaise utilisation (chaleur excessive) peut aggraver. Microplastiques.",
+        "details": [
+          {"TypeRisque": "Monomères Résiduels", "Description": "Substances de base n'ayant pas complètement polymérisé (ex: styrène, formaldéhyde). Leur migration est limitée par les LMS."},
+          {"TypeRisque": "Additifs", "Description": "Substances ajoutées pour améliorer les propriétés du plastique (ex: plastifiants comme les phtalates, antioxydants, stabilisants UV). Seuls les additifs listés et respectant les LMS sont autorisés."},
+          {"TypeRisque": "NIAS", "Description": "Impuretés, produits de réaction ou de dégradation formés involontairement pendant la fabrication ou l'utilisation. Leur évaluation toxicologique est complexe et souvent nécessaire."},
+          {"TypeRisque": "Microplastiques", "Description": "Petits fragments de plastique pouvant se détacher du matériau. Leur impact sur la santé est un sujet de recherche en cours."},
+          {"TypeRisque": "Mauvaise Utilisation", "Description": "Utilisation du plastique dans des conditions non prévues (ex: chauffage excessif) peut augmenter significativement la migration de substances."}
+        ],
+        "keywords": ["plastique", "migration", "risque", "monomère", "additif", "phtalate", "BPA", "NIAS", "microplastique", "chaleur"]
+      },
+      "SUBST_LIST_PLAST_ANNEX_I": {
+        "type": "Requirement",
+        "limit_type": "Composition",
+        "material_scope": [
+          "plastiques"
+        ],
+        "name": "Liste Positive UE (Annexe I Règl. 10/2011)",
+        "summary": "Seules les substances (monomères, autres substances de départ, additifs (sauf colorants), auxiliaires de production de polymères (sauf solvants), macromolécules de fermentation) inscrites à l'Annexe I peuvent être utilisées intentionnellement dans la fabrication des couches plastiques.",
+        "link_to_regulation_annex": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:02011R0010-20200923#d1e1314-1-1",
+        "exceptions": "Des exceptions existent (Art. 6 Règl. 10/2011) : certains sels, polymères naturels, substances derrière barrière fonctionnelle (sous conditions), colorants et solvants (réglementés nationalement), auxiliaires non listés (réglementés nationalement).",
+        "reference_id": "REG_10_2011_CONSOL",
+        "reference_details": "Article 5, Article 6, Annexe I",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              23,
+              24
+            ]
+          }
+        ],
+        "keywords": [
+          "liste positive",
+          "Annexe I",
+          "substance autorisée",
+          "monomère",
+          "additif",
+          "composition",
+          "plastique"
+        ]
+      },
+      "SUBST_NON_LISTED_NIAS": {
+        "type": "Risk Information",
+        "material_scope": [
+          "plastiques"
+        ],
+        "name": "Substances Non Listées et NIAS",
+        "summary": "Les substances non intentionnellement ajoutées (NIAS) - impuretés, produits de réaction/dégradation - ne sont pas sur la liste positive mais doivent être évaluées selon l'Article 3 de 1935/2004 (principe d'inertie).",
+        "details": "L'évaluation des NIAS est sous la responsabilité du fabricant. Des approches d'évaluation du risque (ex: TTC - Threshold of Toxicological Concern) peuvent être utilisées.",
+        "reference_id": "REG_1935_2004",
+        "reference_details": "Article 3",
+        "keywords": [
+          "NIAS",
+          "non-intentionally added substance",
+          "impureté",
+          "dégradation",
+          "réaction",
+          "évaluation risque",
+          "TTC"
+        ]
+      },
+      "LMG_PLAST": {
+        "type": "Limit",
+        "limit_type": "LMG",
+        "material_scope": [
+          "plastiques"
+        ],
+        "name": "Limite de Migration Globale (Plastiques)",
+        "value": "10 mg/dm²",
+        "alternative_value": "60 mg/kg d'aliment (pour nourrissons/jeunes enfants, ou si ratio S/V non connu)",
+        "reference_id": "REG_10_2011_CONSOL",
+        "reference_details": "Article 12",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              24
+            ]
+          }
+        ],
+        "keywords": [
+          "LMG",
+          "migration globale",
+          "overall migration",
+          "plastique",
+          "limite"
+        ]
+      },
+      "LMS_PLAST": {
+        "type": "Limit",
+        "limit_type": "LMS",
+        "material_scope": [
+          "plastiques"
+        ],
+        "name": "Limites de Migration Spécifique (LMS - Plastiques)",
+        "summary": "Des LMS sont fixées pour de nombreuses substances dans les Annexes I et II du Règl. 10/2011 pour protéger la santé.",
+        "details": "Vérifier Colonne 8 Annexe I et Tableau 1 Annexe II pour les valeurs spécifiques par substance. Une LMS générique de 60 mg/kg s'appliquait mais a été supprimée (sauf si la LMG la couvre). Limite de détection standard pour analyse LMS = 0.01 mg/kg sauf si spécifié autrement.",
+        "reference_id": "REG_10_2011_CONSOL",
+        "reference_details": "Article 11, Annexe I (Col. 8), Annexe II",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              10,
+              24
+            ]
+          }
+        ],
+        "keywords": [
+          "LMS",
+          "migration spécifique",
+          "specific migration",
+          "plastique",
+          "limite",
+          "Annexe I",
+          "Annexe II"
+        ]
+      },
+      "RESTRICTIONS_ANNEX_II": {
+        "type": "Requirement",
+        "limit_type": "Restriction",
+        "material_scope": [
+          "plastiques"
+        ],
+        "name": "Restrictions Groupe Annexe II (Métaux, PAA)",
+        "summary": "L'Annexe II du Règl. 10/2011 (MAJ par 15e amendement) fixe des LMS pour un groupe de 19 métaux et des règles spécifiques pour les Amines Aromatiques Primaires (PAA).",
+        "details_metals": "Voir Tableau 1, Annexe II pour les LLS des 19 métaux (ex: Al: 1, Ba: 1, Co: 0.05, Cu: 5, Fe: 40, Li: 0.06, Mn: 0.6, Ni: 0.02, Zn: 5 mg/kg...).",
+        "details_paa": "PAA spécifiques (listées dans entrée 43, Annexe XVII REACH): LMS individuelle ≤ 0.002 mg/kg (non détectable). Somme des autres PAA (non listées): LMS ≤ 0.01 mg/kg.",
+        "link_to_regulation_annex": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:02011R0010-20200923#d1e1946-1-1",
+        "reference_id": "REG_10_2011_CONSOL",
+        "reference_details": "Annexe II",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              10
+            ]
+          }
+        ],
+        "keywords": [
+          "Annexe II",
+          "restriction",
+          "métal",
+          "amine aromatique primaire",
+          "PAA",
+          "AAP",
+          "LMS",
+          "plastique"
+        ]
+      },
+      "TEST_SIMULANTS_PLAST_ANNEX3": {
+        "type": "Test Condition",
+        "material_scope": [
+          "plastiques"
+        ],
+        "name": "Simulants Alimentaires (Plastiques - Annexe III)",
+        "summary": "L'Annexe III du Règl. 10/2011 définit les simulants à utiliser en fonction du type d'aliment.",
+        "details_table": [
+          {
+            "Simulant": "A",
+            "Composition": "Éthanol 10% (v/v)",
+            "Usage": "Aliments aqueux (pH > 4.5)"
+          },
+          {
+            "Simulant": "B",
+            "Composition": "Acide Acétique 3% (m/v)",
+            "Usage": "Aliments acides (pH ≤ 4.5)"
+          },
+          {
+            "Simulant": "C",
+            "Composition": "Éthanol 20% (v/v)",
+            "Usage": "Aliments alcooliques (≤ 20% vol), aliments organiques/lipophiles"
+          },
+          {
+            "Simulant": "D1",
+            "Composition": "Éthanol 50% (v/v)",
+            "Usage": "Aliments alcooliques (> 20% vol), huile dans eau"
+          },
+          {
+            "Simulant": "D2",
+            "Composition": "Huile végétale",
+            "Usage": "Aliments gras (matières grasses libres)"
+          },
+          {
+            "Simulant": "E",
+            "Composition": "Oxyde de poly(2,6-diphényl-p-phénylène) / Tenax®",
+            "Usage": "Aliments secs (tests LMS)"
+          }
+        ],
+        "reference_id": "REG_10_2011_CONSOL",
+        "reference_details": "Annexe III",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              24
+            ]
+          }
+        ],
+        "keywords": [
+          "test",
+          "simulant",
+          "plastique",
+          "Annexe III",
+          "éthanol",
+          "acide acétique",
+          "huile végétale",
+          "Tenax"
+        ]
+      },
+      "TEST_COND_PLAST_ANNEX5": {
+        "type": "Test Condition",
+        "material_scope": [
+          "plastiques"
+        ],
+        "name": "Conditions de Test Standardisées (Plastiques - Annexe V)",
+        "summary": "L'Annexe V du Règl. 10/2011 définit les conditions standard (temps/température) pour les tests de migration (globale et spécifique) basées sur les conditions réelles d'usage.",
+        "details_table_contact": [
+          {
+            "Contact Réel Temps": "t ≤ 5 min",
+            "Test Temps": "5 min"
+          },
+          {
+            "Contact Réel Temps": "0.5 min < t ≤ 0.5 h",
+            "Test Temps": "0.5 h"
+          },
+          {
+            "Contact Réel Temps": "0.5 h < t ≤ 1 h",
+            "Test Temps": "1 h"
+          },
+          {
+            "Contact Réel Temps": "2 h < t ≤ 6 h",
+            "Test Temps": "6 h"
+          },
+          {
+            "Contact Réel Temps": "6 h < t ≤ 24 h",
+            "Test Temps": "24 h"
+          },
+          {
+            "Contact Réel Temps": "1 j < t ≤ 3 j",
+            "Test Temps": "3 j"
+          },
+          {
+            "Contact Réel Temps": "3 j < t ≤ 30 j",
+            "Test Temps": "10 j"
+          },
+          {
+            "Contact Réel Temps": "> 30 j",
+            "Test Temps": "Voir conditions spécifiques ci-dessous"
+          }
+        ],
+        "details_table_temp": [
+          {
+            "Contact Réel Temp": "T ≤ 5 °C",
+            "Test Temp": "5 °C"
+          },
+          {
+            "Contact Réel Temp": "5 °C < T ≤ 20 °C",
+            "Test Temp": "20 °C"
+          },
+          {
+            "Contact Réel Temp": "20 °C < T ≤ 40 °C",
+            "Test Temp": "40 °C"
+          },
+          {
+            "Contact Réel Temp": "40 °C < T ≤ 70 °C",
+            "Test Temp": "70 °C"
+          },
+          {
+            "Contact Réel Temp": "70 °C < T ≤ 100 °C",
+            "Test Temp": "100 °C ou reflux"
+          },
+          {
+            "Contact Réel Temp": "100 °C < T ≤ 121 °C",
+            "Test Temp": "121 °C (*)"
+          },
+          {
+            "Contact Réel Temp": "121 °C < T ≤ 130 °C",
+            "Test Temp": "130 °C (*)"
+          },
+          {
+            "Contact Réel Temp": "130 °C < T ≤ 150 °C",
+            "Test Temp": "150 °C (*)"
+          },
+          {
+            "Contact Réel Temp": "150 °C < T ≤ 175 °C",
+            "Test Temp": "175 °C (*)"
+          },
+          {
+            "Contact Réel Temp": "> 175 °C",
+            "Test Temp": "Voir OM8/OM9 (200°C/225°C) (*)"
+          }
+        ],
+        "details_long_term": [
+          {
+            "Condition Stockage Réel": "Congelé (toute durée)",
+            "Test": "10 j à 20 °C"
+          },
+          {
+            "Condition Stockage Réel": "Réfrigéré et/ou < 6 mois T° amb.",
+            "Test": "10 j à 40 °C"
+          },
+          {
+            "Condition Stockage Réel": "> 6 mois T° amb. ou inférieure",
+            "Test": "10 j à 60 °C"
+          }
+        ],
+        "note_temp": "(*) Hautes températures utilisées uniquement pour simulants D2 (huile) et E (Tenax) pour LMS. Pour simulants aqueux (A, B, C, D1), remplacer par ex: 100°C/reflux pour durée x4.",
+        "link_to_regulation_annex": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:02011R0010-20200923#d1e2169-1-1",
+        "reference_id": "REG_10_2011_CONSOL",
+        "reference_details": "Annexe V",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              25
+            ]
+          }
+        ],
+        "keywords": [
+          "test",
+          "migration",
+          "plastique",
+          "temps",
+          "température",
+          "condition",
+          "Annexe V",
+          "OM1",
+          "OM2",
+          "OM7",
+          "standard"
+        ]
+      },
+      "TEST_USAGE_REPETE_PLAST": {
+        "type": "Test Condition",
+        "material_scope": [
+          "plastiques"
+        ],
+        "name": "Tests pour Usage Répété (Plastiques)",
+        "summary": "Pour matériaux/objets réutilisables, les tests LMG et LMS doivent être faits sur 3 migrations successives (M1, M2, M3) avec le même échantillon.",
+        "details": "Conformité basée sur M3 (< limite réglementaire) ET sur la stabilité (M3 < M2 < M1). Introduit par le 15e amendement (UE) 2020/1245.",
+        "reference_id": "REG_10_2011_CONSOL",
+        "reference_details": "Annexe V, Point 3 (modifié)",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              10
+            ]
+          }
+        ],
+        "keywords": [
+          "test",
+          "migration",
+          "plastique",
+          "usage répété",
+          "réutilisable",
+          "trois migrations",
+          "stabilité",
+          "M1 M2 M3"
+        ]
+      },
+      "DEF_BARRIERE_FONCTIONNELLE": {
+        "type": "Definition",
+        "material_scope": [
+          "plastiques",
+          "multicouches"
+        ],
+        "name": "Barrière Fonctionnelle",
+        "summary": "Couche intermédiaire dans un matériau multicouche empêchant la migration de substances (non autorisées dans l'Annexe I) depuis les couches arrières vers l'aliment.",
+        "details": "La substance derrière la barrière ne doit pas migrer au-delà de 0.01 mg/kg (limite de détection). Ne s'applique pas aux substances CMR ou nano. L'efficacité doit être démontrée (tests ou modélisation).",
+        "reference_id": "REG_10_2011_CONSOL",
+        "reference_details": "Article 3(15), Article 13, Article 14",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              23
+            ]
+          }
+        ],
+        "keywords": [
+          "barrière fonctionnelle",
+          "functional barrier",
+          "multicouche",
+          "migration",
+          "plastique",
+          "NIAS"
+        ]
+      }
+    }
+  },
+  "metaux_alliages": {
+    "name": "Métaux et Alliages",
+    "description": "Utilisés dans les boîtes de conserve, ustensiles de cuisine, équipements de transformation.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "COE_GUIDE_METAUX_2024",
+      "ARRETES_FR_METAUX"
+    ],
+    "risks": [
+      "RISK_MIGRATION_METAUX"
+    ],
+    "details": {
+      "COE_GUIDE_METAUX_2024": {
+        "type": "Guidance",
+        "scope": "CoE/EU Reference",
+        "name": "Guide Technique EDQM Métaux et Alliages (2e éd. 2024)",
+        "summary": "Référence technique clé du Conseil de l'Europe (EDQM) pour évaluer la sécurité des métaux et alliages. Complète la Résolution CM/Res(2020)9. Contient principes, LLS/SRL pour 21+ métaux, méthodes d'essai.",
+        "link": "https://freepub.edqm.eu/publications",
+        "details": "Ce guide, bien que non légalement contraignant au niveau de l'UE, est largement utilisé pour démontrer la conformité au principe d'inertie (Art. 3 du Règl. 1935/2004). Il fournit des Limites de Libération Spécifiques (LLS) pour de nombreux métaux (ex: Nickel, Chrome, Aluminium, Fer, Cuivre, Zinc, Plomb, Cadmium, Arsenic, Mercure). Les méthodes d'essai recommandées utilisent souvent l'acide citrique à 0,5% pour simuler les aliments acides, qui sont les plus corrosifs pour les métaux.",
+        "keywords": ["EDQM", "Conseil Europe", "guide technique", "métal", "alliage", "LLS", "SRL", "test migration", "2024", "CM/Res(2020)9", "nickel", "chrome", "aluminium", "fer", "cuivre", "zinc", "plomb", "cadmium", "arsenic", "mercure"]
+      },
+      "ARRETES_FR_METAUX": {
+        "type": "Regulation",
+        "scope": "FR",
+        "name": "Arrêtés Français Spécifiques (Inox, Aluminium)",
+        "summary": "La France a des arrêtés spécifiques: Arrêté du 13 janvier 1976 (Aciers Inoxydables, exige ≥13% Cr) et Arrêté du 27 août 1987 (Aluminium et alliages, critères de composition et anodisation).",
+        "details": "Ces arrêtés nationaux complètent la réglementation européenne en l'absence de mesures spécifiques harmonisées pour ces matériaux. L'arrêté sur l'acier inoxydable impose une teneur minimale en chrome (13%) pour assurer une bonne résistance à la corrosion. L'arrêté sur l'aluminium fixe des limites de composition pour les alliages autorisés et des conditions pour le traitement de surface (anodisation) afin de limiter la migration.",
+        "link_inox": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000307892/",
+        "link_alu": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000694757/",
+        "keywords": ["arrêté", "france", "acier inoxydable", "inox", "aluminium", "composition", "chrome", "anodisation"]
+      },
+      "RISK_MIGRATION_METAUX": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Métaux)",
+        "summary": "Corrosion ou usure peuvent entraîner migration de métaux. Inox de mauvaise qualité (Ni, Cr), alliages cuivreux (Cu, Pb), plomb résiduel, aluminium en milieu acide.",
+        "details": [
+          {"Source": "Corrosion/Usure", "Risk": "La surface du métal peut se dégrader au contact de certains aliments (acides, salins), libérant des ions métalliques dans l'aliment. Le type d'alliage est crucial (ex: un inox avec moins de 13% de chrome est moins résistant à la corrosion)."},
+          {"Source": "Composition de l'Alliage", "Risk": "Certains éléments présents dans l'alliage (ex: Nickel, Chrome, Cuivre, Plomb) peuvent migrer. Les LLS/SRL définissent les limites acceptables."},
+          {"Source": "Plomb/Cadmium", "Risk": "Ces métaux lourds sont très toxiques et strictement limités. Ils peuvent être présents comme impuretés dans certains alliages ou soudures (particulièrement dans les anciens produits)."},
+          {"Source": "Aluminium", "Risk": "La migration de l'aluminium est plus importante au contact d'aliments très acides (pH bas) ou très salins. L'anodisation peut réduire ce risque."},
+          {"Source": "Revêtements", "Risk": "Si le métal est revêtu (ex: fer blanc étamé, aluminium verni), l'intégrité et la conformité du revêtement sont essentielles. Un revêtement endommagé peut exposer le métal sous-jacent et entraîner sa migration."}
+        ],
+        "keywords": ["métal", "migration", "risque", "corrosion", "nickel", "chrome", "plomb", "cadmium", "aluminium", "cuivre", "alliage", "revêtement"]
+      },
+      "LLS_METAUX_COE_2024": {
+        "type": "Limit",
+        "limit_type": "LLS/SRL",
+        "material_scope": ["metaux_alliages"],
+        "name": "Limites de Libération Spécifique (LLS/SRL) - Guide EDQM 2024",
+        "summary": "Le Guide EDQM 2024 (Tableaux 1 & 2, p.37-38) définit les LLS pour les constituants d'alliages et les contaminants. Exprimées en mg/kg d'aliment. Consulter le guide pour les méthodes de dérivation.",
+        "link_to_guide": "https://freepub.edqm.eu/publications",
+        "details_table_constituents": [
+          {"Metal": "Aluminium (Al)", "Symbol": "Al", "LLS": "5 mg/kg"},
+          {"Metal": "Antimoine (Sb)", "Symbol": "Sb", "LLS": "0.04 mg/kg"},
+          {"Metal": "Argent (Ag)", "Symbol": "Ag", "LLS": "0.08 mg/kg (†)"},
+          {"Metal": "Chrome (Cr III)", "Symbol": "Cr", "LLS": "1 mg/kg (*)"},
+          {"Metal": "Cobalt (Co)", "Symbol": "Co", "LLS": "0.02 mg/kg"},
+          {"Metal": "Cuivre (Cu)", "Symbol": "Cu", "LLS": "4 mg/kg"},
+          {"Metal": "Étain (Sn)", "Symbol": "Sn", "LLS": "100 mg/kg (‡)"},
+          {"Metal": "Fer (Fe)", "Symbol": "Fe", "LLS": "40 mg/kg"},
+          {"Metal": "Magnésium (Mg)", "Symbol": "Mg", "LLS": "Pas de LLS (§)"},
+          {"Metal": "Manganèse (Mn)", "Symbol": "Mn", "LLS": "0.55 mg/kg (*)"},
+          {"Metal": "Molybdène (Mo)", "Symbol": "Mo", "LLS": "0.12 mg/kg"},
+          {"Metal": "Nickel (Ni)", "Symbol": "Ni", "LLS": "0.14 mg/kg"},
+          {"Metal": "Titane (Ti)", "Symbol": "Ti", "LLS": "Pas de LLS (§)"},
+          {"Metal": "Vanadium (V)", "Symbol": "V", "LLS": "0.01 mg/kg"},
+          {"Metal": "Zinc (Zn)", "Symbol": "Zn", "LLS": "5 mg/kg"},
+          {"Metal": "Zirconium (Zr)", "Symbol": "Zr", "LLS": "2 mg/kg (*)"}
+        ],
+        "details_table_contaminants": [
+          {"Metal": "Arsenic (As)", "Symbol": "As", "LLS": "0.002 mg/kg"},
+          {"Metal": "Baryum (Ba)", "Symbol": "Ba", "LLS": "1.2 mg/kg"},
+          {"Metal": "Béryllium (Be)", "Symbol": "Be", "LLS": "0.01 mg/kg"},
+          {"Metal": "Cadmium (Cd)", "Symbol": "Cd", "LLS": "0.005 mg/kg"},
+          {"Metal": "Lithium (Li)", "Symbol": "Li", "LLS": "0.048 mg/kg"},
+          {"Metal": "Mercure (Hg)", "Symbol": "Hg", "LLS": "0.003 mg/kg"},
+          {"Metal": "Plomb (Pb)", "Symbol": "Pb", "LLS": "0.010 mg/kg"},
+          {"Metal": "Thallium (Tl)", "Symbol": "Tl", "LLS": "0.001 mg/kg (*)"}
+        ],
+        "notes": [
+          "(*) LLS modifiée dans l'édition 2024.",
+          "(†) Facteur de correction x5 applicable pour couverts en argent/métal argenté (voir Annexe II du Guide).",
+          "(‡) Sauf si couvert par Règl. (UE) 2023/915 sur les contaminants.",
+          "(§) Pas de LLS spécifique établie par EDQM. LLS générique de 60 mg/kg ne s'applique pas."
+        ],
+        "reference_id": "COE_GUIDE_METAUX_2024",
+        "reference_details": "Tableaux 1 & 2 (p. 37-38), Chapitre 4",
+        "source_refs": [
+          {"doc": "Guide EDQM 2024", "page": ["37-41", "43-195"]},
+          {"doc": "Mémento CETIM", "page": [29]}
+        ],
+        "keywords": ["LLS", "SRL", "limite", "migration spécifique", "métal", "contaminant", "EDQM 2024", "aluminium", "chrome", "nickel", "plomb", "cadmium", "mercure", "arsenic", "étain", "zinc", "manganèse", "cuivre", "fer", "titane", "vanadium", "zirconium", "antimoine", "argent", "cobalt", "molybdène", "baryum", "béryllium", "lithium", "thallium", "magnésium"]
+      }
+    }
+  },
+  "bois": {
+    "name": "Bois",
+    "description": "Utilisé pour les planches à découper, ustensiles, emballages (caisses, tonneaux).",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "REC_DGCCRF_BOIS_2012_93"
+    ],
+    "risks": [
+      "RISK_MIGRATION_BOIS"
+    ],
+    "details": {
+      "REC_DGCCRF_BOIS_2012_93": {
+        "type": "Recommendation",
+        "scope": "FR",
+        "name": "Note d'Information DGCCRF n° 2012-93 (Bois)",
+        "summary": "Recommandations françaises détaillées pour l'aptitude au contact alimentaire des objets en bois. Liste les essences autorisées et les conditions d'usage (traitements, colles, etc.).",
+        "link": "https://www.economie.gouv.fr/dgccrf/publications/notes-dinformation/consommation",
+        "details": "Cette note est la référence technique principale en France pour le bois. Elle insiste sur le choix d'essences de bois traditionnellement utilisées et reconnues inertes. Elle interdit l'utilisation de bois traité avec des produits biocides non autorisés pour le contact alimentaire. Les colles, huiles et vernis utilisés comme finitions doivent être de qualité alimentaire. L'hygiène est un point crucial en raison de la porosité du bois.",
+        "keywords": ["DGCCRF", "note information", "bois", "france", "recommandation", "essence bois", "traitement bois", "biocide", "colle", "finition", "hygiène"]
+      },
+      "RISK_MIGRATION_BOIS": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Bois)",
+        "summary": "Les principaux risques chimiques viennent des traitements ou colles. Risques naturels et microbiologiques existent aussi.",
+        "details": [
+          {"Source": "Microbiologique", "Risk": "Le bois est poreux et peut absorber l'humidité et les résidus alimentaires, favorisant la croissance de bactéries et moisissures si le nettoyage et le séchage ne sont pas adéquats."},
+          {"Source": "Traitement Biocide", "Risk": "Migration de substances chimiques toxiques (ex: PCP, créosote) si le bois a été traité avec des produits non autorisés pour le contact alimentaire."},
+          {"Source": "Colles / Finitions", "Risk": "Migration de composants des colles (ex: formaldéhyde) ou des vernis/huiles si ces produits ne sont pas de qualité alimentaire."},
+          {"Source": "Essence de Bois", "Risk": "Certaines essences de bois peuvent contenir des substances naturelles (tanins, résines, toxines) qui peuvent migrer et altérer le goût de l'aliment ou être nocives si l'essence n'est pas appropriée."},
+          {"Source": "Physique", "Risk": "Présence d'échardes ou de fragments de bois si la surface n'est pas correctement finie."}
+        ],
+        "keywords": ["bois", "migration", "risque", "microbiologique", "traitement", "biocide", "colle", "finition", "essence", "tanin", "écharde"]
+      }
+    }
+  },
+  "ceramiques_verre": {
+    "name": "Céramiques et Verre",
+    "description": "Vaisselle, récipients de stockage, bouteilles.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "DIR_84_500_CEE_MOD",
+      "ARRETE_1985_11_07_CERAM_MOD"
+    ],
+    "risks": [
+      "RISK_MIGRATION_CERAMIQUES_VERRES"
+    ],
+    "details": {
+      "DIR_84_500_CEE_MOD": {
+        "type": "Regulation",
+        "scope": "EU",
+        "name": "Directive 84/500/CEE modifiée (par 2005/31/CE)",
+        "summary": "Directive UE harmonisée spécifique aux objets céramiques (vaisselle, cuisson...) limitant la migration du Plomb (Pb) et du Cadmium (Cd). Exige une DoC spécifique.",
+        "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:01984L0500-20050520",
+        "scope_details": "Ne couvre PAS les céramiques techniques (ex: SiC, Si3N4, ZrO2) utilisées dans l'industrie. Concerne principalement faïence, grès, porcelaine...",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              19,
+              26,
+              44
+            ]
+          }
+        ],
+        "keywords": [
+          "céramique",
+          "ceramic",
+          "plomb",
+          "cadmium",
+          "Pb",
+          "Cd",
+          "84/500",
+          "directive",
+          "vaisselle",
+          "harmonisé"
+        ]
+      },
+      "ARRETE_1985_11_07_CERAM_MOD": {
+        "type": "Regulation",
+        "scope": "FR",
+        "name": "Arrêté FR du 7 novembre 1985 modifié (par arrêté du 23/05/2006)",
+        "summary": "Transposition française de la Directive 84/500/CEE sur les céramiques.",
+        "link": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000731940/",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              26,
+              44
+            ]
+          }
+        ],
+        "keywords": [
+          "arrêté",
+          "france",
+          "céramique",
+          "plomb",
+          "cadmium",
+          "transposition"
+        ]
+      },
+      "RISK_MIGRATION_CERAMIQUES_VERRES": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Céramiques/Verres)",
+        "summary": "Principal risque : migration de métaux lourds (Pb, Cd) depuis les émaux ou décorations mal cuits ou de mauvaise qualité. Les verres en cristal peuvent libérer du plomb.",
+        "details": [
+          {"Source": "Émaux / Décorations", "Risk": "Si les glaçures ou décorations émaillées ne sont pas correctement formulées ou cuites, le plomb et le cadmium peuvent migrer dans l'aliment, surtout avec des aliments acides. D'autres métaux peuvent aussi être libérés."},
+          {"Source": "Verre Cristal au Plomb", "Risk": "Le cristal traditionnel contient du plomb. Le contact prolongé avec des boissons acides ou alcoolisées peut entraîner une migration significative de plomb."},
+          {"Source": "Fissures (Céramique)", "Risk": "Des défauts dans la glaçure (craquelures) peuvent rendre la surface difficile à nettoyer et favoriser la croissance microbienne."}
+        ],
+        "keywords": ["céramique", "verre", "migration", "risque", "plomb", "cadmium", "cristal", "émail", "décoration", "craquelure"]
+      },
+      "TEST_PBCD_CERAM": {
+        "type": "Test Condition",
+        "material_scope": [
+          "ceramiques",
+          "gres_porcelaine",
+          "verre",
+          "cristal",
+          "vitroceramique",
+          "objets_emailles"
+        ],
+        "name": "Test Migration (Pb, Cd, Al, Co, As - selon Fiche DGCCRF)",
+        "summary": "Conditions de test recommandées par la DGCCRF (basées sur Dir. 84/500/CEE) pour vérifier les LLS des matériaux inorganiques.",
+        "details": "Simulant: Acide acétique 4% (v/v). Conditions: 24h ± 0.5h à 22 ± 2 °C.",
+        "reference_id": "REC_DGCCRF_INORG",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              26,
+              27
+            ]
+          },
+          {
+            "doc": "Fiche DGCCRF MCDA n°2"
+          }
+        ],
+        "keywords": [
+          "test",
+          "migration",
+          "plomb",
+          "cadmium",
+          "aluminium",
+          "cobalt",
+          "arsenic",
+          "verre",
+          "céramique",
+          "acide acétique"
+        ]
+      },
+      "LIMITS_PBCD_CERAM_DIR": {
+        "type": "Limit",
+        "limit_type": "LMS/LLS",
+        "material_scope": [
+          "ceramiques",
+          "gres_porcelaine",
+          "verre",
+          "cristal",
+          "vitroceramique",
+          "objets_emailles"
+        ],
+        "name": "Limites Pb/Cd (selon Fiche DGCCRF / Dir. 84/500)",
+        "summary": "Limites spécifiques de libération pour Pb et Cd recommandées par la DGCCRF (basées sur les catégories de la Dir. 84/500/CEE).",
+        "details_table": [
+          {
+            "Category": "I (Objets plats / creux ≤ 25mm prof.)",
+            "Pb_limit": "0.8 mg/dm²",
+            "Cd_limit": "0.07 mg/dm²"
+          },
+          {
+            "Category": "II (Autres objets remplissables)",
+            "Pb_limit": "4.0 mg/L",
+            "Cd_limit": "0.3 mg/L"
+          },
+          {
+            "Category": "III (Ustensiles cuisson, stockage >3L)",
+            "Pb_limit": "1.5 mg/L",
+            "Cd_limit": "0.1 mg/L"
+          }
+        ],
+        "reference_id": "REC_DGCCRF_INORG",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              26,
+              27
+            ]
+          }
+        ],
+        "keywords": [
+          "LLS",
+          "LMS",
+          "limite",
+          "plomb",
+          "cadmium",
+          "céramique",
+          "verre"
+        ]
+      },
+      "DOC_CHECK_CERAM": {
+        "type": "DoC Checkpoint",
+        "material_scope": [
+          "ceramiques",
+          "gres_porcelaine"
+        ],
+        "name": "Points spécifiques DoC (Céramiques - Dir. 84/500)",
+        "summary": "La directive 2005/31/CE exige une déclaration écrite de conformité spécifique pour les céramiques.",
+        "checkpoints": [
+          "Identité et adresse fabricant/importateur.",
+          "Identité de l'objet céramique.",
+          "Date de la déclaration.",
+          "Attestation conformité Règl. 1935/2004 ET Dir. 84/500/CEE.",
+          "Confirmation que les migrations de Pb et Cd respectent les limites fixées."
+        ],
+        "reference_id": "DIR_84_500_CEE_MOD",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              21,
+              35
+            ]
+          }
+        ],
+        "keywords": [
+          "DoC",
+          "déclaration conformité",
+          "céramique",
+          "plomb",
+          "cadmium",
+          "directive"
+        ]
+      },
+      "CERAM_TECHNIQUES_STATUS": {
+        "type": "Status",
+        "scope": "EU/FR",
+        "name": "Statut des Céramiques Techniques (SiC, Si3N4, ZrO2...)",
+        "summary": "Les céramiques techniques industrielles ne sont PAS couvertes par la Dir. 84/500/CEE. Les exigences générales du Règl. 1935/2004 s'appliquent (Inertie, BPF...).",
+        "details": "L'opérateur peut déclarer, sous sa responsabilité, l'absence de Pb et Cd (qui ne sont généralement pas des constituants de ces matériaux).",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              19,
+              26
+            ]
+          }
+        ],
+        "keywords": [
+          "céramique technique",
+          "SiC",
+          "nitrure silicium",
+          "zircone",
+          "industriel",
+          "non harmonisé",
+          "inertie"
+        ]
+      },
+      "REC_DGCCRF_INORG": {
+        "type": "Recommendation",
+        "scope": "FR",
+        "name": "Fiche DGCCRF Matériaux Inorganiques (MCDA n°2)",
+        "summary": "Recommandations FR (non obligatoires mais fortement conseillées) pour céramiques, verres, émaux. Reprend limites Pb/Cd Dir. 84/500 et ajoute des limites pour Al, Co, As, et une catégorie 'Contact Buccal'.",
+        "link": "https://www.economie.gouv.fr/dgccrf/materiaux-au-contact-des-denrees-alimentaires",
+        "details": "LLS recommandées : Al ≤ 1 mg/kg; Co ≤ 0.2 mg/kg; As non détectable (LD ≤ 0.002 mg/kg). Contact buccal (décor extérieur sur 20mm du bord): Pb ≤ 2 mg/article; Cd ≤ 0.2 mg/article.",
+        "scope_details": "S'applique aussi à verre, cristal, vitrocéramique, objets émaillés.",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              27,
+              31
+            ]
+          }
+        ],
+        "keywords": [
+          "DGCCRF",
+          "fiche",
+          "inorganique",
+          "céramique",
+          "verre",
+          "émail",
+          "aluminium",
+          "cobalt",
+          "arsenic",
+          "contact buccal",
+          "recommandation",
+          "france"
+        ]
+      }
+    }
+  },
+  "papier_carton": {
+    "name": "Papier et Carton",
+    "description": "Emballages, sacs, filtres.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "COE_GUIDE_PAPIER_CARTON",
+      "BFR_REC_XXXVI",
+      "REQ_PAPIER_CARTON_FR"
+    ],
+    "risks": [
+      "RISK_MIGRATION_PAPIER_CARTON"
+    ],
+    "details": {
+      "COE_GUIDE_PAPIER_CARTON": {
+        "type": "Guidance",
+        "scope": "CoE",
+        "name": "Guide Technique EDQM (Papier et Carton)",
+        "summary": "Guide technique du Conseil de l'Europe (EDQM, 2021) fournissant des lignes directrices, listes de substances et critères pour évaluer la sécurité des papiers et cartons alimentaires.",
+        "link": "https://www.edqm.eu/en/paper-and-board-used-in-food-contact-materials-and-articles-guide",
+        "details": "Ce guide est une référence technique importante en l'absence de réglementation UE harmonisée. Il aborde la composition des papiers/cartons, les substances potentiellement migrantes (fibres, additifs, encres, colles) et propose des méthodes d'évaluation.",
+        "keywords": ["EDQM", "Conseil Europe", "guide technique", "papier", "carton"]
+      },
+      "BFR_REC_XXXVI": {
+        "type": "Recommendation",
+        "scope": "DE/EU Reference",
+        "name": "Recommandation BfR XXXVI (Papier et Carton)",
+        "summary": "Recommandation de l'Institut Fédéral Allemand d'Évaluation des Risques (BfR) pour les papiers, cartons et leurs dérivés destinés au contact alimentaire. Largement utilisée comme référence en Europe.",
+        "link": "https://bfr.bund.de/cm/343/xxxvi_paper_paperboard_and_board_for_food_contact.pdf",
+        "details": "Cette recommandation allemande est une référence technique clé en Europe. Elle contient des listes de substances autorisées (fibres, additifs) et des exigences de pureté. Elle met l'accent sur la limitation de la migration de substances indésirables, notamment issues des papiers/cartons recyclés.",
+        "keywords": ["BfR", "recommandation", "papier", "carton", "Allemagne", "liste positive"]
+      },
+      "REQ_PAPIER_CARTON_FR": {
+        "type": "Requirement",
+        "scope": "FR",
+        "name": "Exigences Spécifiques FR (Papier et Carton)",
+        "summary": "Application du Règl. 1935/2004. Fiches DGCCRF. Loi AGEC (recyclés, PFAS). Obligation de barrière fonctionnelle pour recyclés si risque de migration. Impression sur face non contact.",
+        "details": "En France, la DGCCRF s'appuie sur les exigences générales du règlement cadre et les recommandations techniques internationales (BfR, EDQM). La loi AGEC a introduit des restrictions spécifiques, notamment concernant l'utilisation de matériaux recyclés (nécessité d'une barrière fonctionnelle si risque de migration) et l'interdiction de certaines substances (ex: PFAS). L'impression ne doit pas être en contact direct avec l'aliment.",
+        "keywords": ["DGCCRF", "AGEC", "recyclé", "PFAS", "MOSH", "MOAH", "barrière fonctionnelle", "impression", "france"]
+      },
+      "RISK_MIGRATION_PAPIER_CARTON": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Papier et Carton)",
+        "summary": "Principaux risques: migration depuis papiers/cartons recyclés (huiles minérales, photoinitiateurs, autres contaminants). PFAS dans papiers traités anti-graisse. Formaldéhyde depuis colles.",
+        "details": [
+          {"Source": "Papier/Carton Recyclé", "Risk": "Les papiers/cartons recyclés peuvent contenir des contaminants issus de leur usage précédent (ex: encres d'impression, adhésifs, résidus chimiques). Les huiles minérales (MOSH/MOAH) et les photoinitiateurs sont des préoccupations majeures."},
+          {"Source": "Traitements Chimiques", "Risk": "Migration de substances utilisées pour donner des propriétés spécifiques au papier/carton (ex: agents anti-graisse contenant des PFAS, agents de blanchiment, azurants optiques)."},
+          {"Source": "Colles et Adhésifs", "Risk": "Migration de composants des colles utilisées dans la fabrication du carton ou l'assemblage des emballages (ex: formaldéhyde, acrylamide)."},
+          {"Source": "Encres d'impression", "Risk": "Migration de composants de l'encre par 'set-off' ou perméation si l'encre n'est pas sur la face extérieure ou si une barrière n'est pas présente."},
+          {"Source": "Microbiologique", "Risk": "Le papier/carton peut être un substrat pour la croissance microbienne si les conditions de stockage sont humides, pouvant entraîner la production de mycotoxines."}
+        ],
+        "keywords": ["papier", "carton", "migration", "risque", "MOSH", "MOAH", "photoinitiateur", "PFAS", "formaldéhyde", "encre", "recyclé", "contaminant"]
+      }
+    }
+  },
+  "caoutchoucs_elastomeres": {
+    "name": "Caoutchoucs et Élastomères",
+    "description": "Joints, tétines, sucettes, gants.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "ARRETE_FR_2020_08_05_CAOUTCHOUC",
+      "COE_RES_AP_2004_4_CAOUTCHOUC",
+      "DIR_93_11_CEE_NITROSAMINES"
+    ],
+    "risks": [
+      "RISK_MIGRATION_CAOUTCHOUCS"
+    ],
+    "details": {
+      "ARRETE_FR_2020_08_05_CAOUTCHOUC": {
+        "type": "Regulation",
+        "scope": "FR",
+        "name": "Arrêté FR du 5 août 2020 (Caoutchoucs et Élastomères)",
+        "summary": "Réglementation française spécifique et détaillée pour les matériaux et objets en caoutchouc et les sucettes. Contient listes positives, restrictions, conditions de test et exigences DoC. Applicable depuis 1er juillet 2021.",
+        "link": "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042225149/",
+        "details": "Structure de l'arrêté:\n- Annexe I: Monomères et substances de départ.\n- Annexe II: Additifs (par fonction: modificateurs, accélérateurs, vulcanisants, antioxydants, activateurs, retardateurs, charges, plastifiants, résines, lubrifiants, agents pour latex...). **Attention: Pas d'agents gonflants listés comme autorisés**.\n- Annexe III: Restrictions et spécifications (LMS, QMA, pureté).\n- Annexe IV: Conditions de test (simulants, temps, températures).\n- Annexe V: Contenu minimal de la DoC.",
+        "transitional_measures": "Mesures transitoires pour produits mis sur le marché avant 01/07/2021 (voir texte arrêté).",
+        "mutual_recognition": "Clause de reconnaissance mutuelle incluse (Article 10).",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              14,
+              20,
+              27,
+              28,
+              47
+            ]
+          }
+        ],
+        "keywords": [
+          "arrêté",
+          "france",
+          "caoutchouc",
+          "rubber",
+          "liste positive",
+          "LMS",
+          "QMA",
+          "test",
+          "DoC",
+          "2020"
+        ]
+      },
+      "COE_RES_AP_2004_4_CAOUTCHOUC": {
+        "type": "Recommendation",
+        "scope": "CoE",
+        "name": "Résolution CoE ResAP(2004)4 (Caoutchouc)",
+        "summary": "Résolution du Conseil de l'Europe fournissant un cadre technique pour l'évaluation des caoutchoucs. Propose des listes de substances, LMG/LMS, et une méthode d'évaluation du risque (R-total).",
+        "link": "https://freepub.edqm.eu/publications",
+        "details": "Points clés (voir document technique n°2 pour détails) :\n- Classification des substances.\n- LMG = 60 mg/kg.\n- LMS spécifiques pour certaines substances.\n- Méthode de calcul R-total (basée sur Surface/Volume, Temps, Température, Fréquence contact) pour catégoriser le risque (Cat I, II, III).\n- **Exemption possible des tests de migration** si caoutchouc de catégorie III avec R-total < 0.001 et absence de certaines substances spécifiques, ou si migration 'pire cas' ≤ 0.01 mg/kg.",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              27,
+              28,
+              31,
+              37
+            ]
+          }
+        ],
+        "keywords": [
+          "caoutchouc",
+          "rubber",
+          "élastomère",
+          "Conseil Europe",
+          "résolution",
+          "ResAP(2004)4",
+          "R-total",
+          "test migration",
+          "exemption",
+          "recommandation"
+        ]
+      },
+      "DIR_93_11_CEE_NITROSAMINES": {
+        "type": "Regulation",
+        "scope": "EU",
+        "name": "Directive 93/11/CEE (Tétines/Sucettes)",
+        "summary": "Directive UE spécifique limitant la libération de N-nitrosamines et substances N-nitrosables par les tétines et sucettes en élastomère ou caoutchouc.",
+        "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:31993L0011",
+        "details_limits": [
+          {
+            "Substance": "N-nitrosamines",
+            "Limit": "≤ 0.01 mg/kg (de matériau/pièce)",
+            "Simulant": "Salive artificielle (EN 12868)"
+          },
+          {
+            "Substance": "Substances N-nitrosables",
+            "Limit": "≤ 0.1 mg/kg (de matériau/pièce)",
+            "Simulant": "Salive artificielle (EN 12868)"
+          }
+        ],
+        "scope_details": "Concerne uniquement tétines et sucettes.",
+        "french_implementation": "Intégré dans l'Arrêté FR 05/08/2020.",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              27,
+              43,
+              45
+            ]
+          }
+        ],
+        "keywords": [
+          "nitrosamine",
+          "nitrosable",
+          "tétine",
+          "sucette",
+          "caoutchouc",
+          "élastomère",
+          "directive",
+          "93/11",
+          "LMS"
+        ]
+      },
+      "RISK_MIGRATION_CAOUTCHOUCS": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Caoutchoucs)",
+        "summary": "Les principaux risques chimiques viennent des résidus de vulcanisation (nitrosamines), monomères, additifs (accélérateurs, antioxydants, HAP des huiles).",
+        "details": [
+          {"Source": "Vulcanisation", "Risk": "Le processus de vulcanisation peut former des N-nitrosamines si des accélérateurs à base d'amines secondaires sont utilisés. Ces substances sont préoccupantes pour la santé."},
+          {"Source": "Monomères/Additifs", "Risk": "Migration de monomères résiduels ou d'additifs (ex: accélérateurs, antioxydants, charges) si non autorisés ou présents en excès."},
+          {"Source": "Huiles de Dilution", "Risk": "Les caoutchoucs noirs peuvent contenir des huiles de dilution. Si elles ne sont pas de grade alimentaire, elles peuvent contenir des Hydrocarbures Aromatiques Polycycliques (HAP) toxiques."},
+          {"Source": "Dégradation", "Risk": "Le vieillissement ou la dégradation du caoutchouc (chaleur, lumière, contact avec certains aliments) peut libérer des produits de dégradation."},
+          {"Source": "Organoleptique", "Risk": "Certains types de caoutchouc peuvent conférer une odeur ou un goût désagréable à l'aliment."}
+        ],
+        "keywords": ["caoutchouc", "migration", "risque", "nitrosamine", "HAP", "additif", "vulcanisation", "organoleptique"]
+      }
+    }
+  },
+  "actifs_intelligents": {
+    "name": "Matériaux Actifs et Intelligents",
+    "description": "Emballages qui interagissent activement avec l'aliment ou son environnement.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "REG_450_2009"
+    ],
+    "risks": [
+      "RISK_MIGRATION_ACTIF_INTELLIGENT"
+    ],
+    "details": {
+      "REG_450_2009": {
+        "type": "Regulation",
+        "scope": "EU",
+        "name": "Règlement (CE) n° 450/2009",
+        "summary": "Règlement spécifique UE harmonisé pour les matériaux et objets actifs et intelligents destinés au contact alimentaire. Définit les exigences générales et spécifiques, la procédure d'autorisation pour les composants, les règles d'étiquetage et de déclaration de conformité.",
+        "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32009R0450",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              19,
+              23,
+              26,
+              44
+            ]
+          }
+        ],
+        "keywords": [
+          "actifs",
+          "intelligents",
+          "active",
+          "intelligent",
+          "450/2009",
+          "harmonisé",
+          "règlement spécifique"
+        ]
+      },
+      "RISK_MIGRATION_ACTIF_INTELLIGENT": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Actifs/Intelligents)",
+        "summary": "Risque de migration des substances actives/intelligentes elles-mêmes ou de leurs produits de dégradation, si non conformes ou en quantités excessives. Nécessite une évaluation toxicologique rigoureuse.",
+        "details": "Le risque principal est lié à la migration des substances actives (ex: absorbeurs d'oxygène, émetteurs d'arômes, agents antimicrobiens) ou intelligentes (ex: indicateurs de température, de pH, de fraîcheur). Ces substances sont conçues pour être libérées ou réagir, leur sécurité doit donc être rigoureusement évaluée par l'EFSA avant autorisation. La migration de produits de dégradation est également une préoccupation.",
+        "keywords": ["actif", "intelligent", "migration", "risque", "toxicité", "substance libérée", "dégradation"]
+      }
+    }
+  },
+  "cellulose_regeneree": {
+    "name": "Pellicule de Cellulose Régénérée",
+    "description": "Utilisée pour les emballages de confiserie, fromages, viandes.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "DIR_2007_42_CE"
+    ],
+    "risks": [
+      "RISK_MIGRATION_CELLULOSE"
+    ],
+    "details": {
+      "DIR_2007_42_CE": {
+        "type": "Regulation",
+        "scope": "EU",
+        "name": "Directive 2007/42/CE (Cellulose Régénérée)",
+        "summary": "Directive UE harmonisée spécifique pour les matériaux et objets en pellicule de cellulose régénérée (PCR), revêtus ou non. Établit des listes positives de substances, des restrictions (LMS/QM) et exige une DoC.",
+        "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32007L0042",
+        "details": "Codifie et abroge les directives antérieures (93/10/CEE, 93/111/CE, 2004/14/CE). S'applique aux pellicules issues de cellulose purifiée non recyclée.",
+        "scope_details": "Couvre 3 types de PCR:\n1. PCR non revêtue.\n2. PCR revêtie de cellulose nitrate.\n3. PCR revêtie de plastique (autre que cellulose nitrate).",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              19,
+              23,
+              26,
+              44
+            ]
+          }
+        ],
+        "keywords": [
+          "cellulose régénérée",
+          "regenerated cellulose film",
+          "PCR",
+          "cellophane",
+          "directive",
+          "2007/42",
+          "harmonisé",
+          "liste positive"
+        ]
+      },
+      "RISK_MIGRATION_CELLULOSE": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Cellulose Régénérée)",
+        "summary": "Risque de migration de monomères résiduels, additifs, ou impuretés si non conformes. Les revêtements peuvent aussi être une source de migration.",
+        "details": "Bien que la cellulose elle-même soit inerte, les substances utilisées pour sa régénération, les plastifiants ajoutés pour la flexibilité (ex: glycérol, sorbitol) et les additifs ou colorants peuvent migrer. Les revêtements (ex: PVDC, cires) appliqués sur la PCR pour améliorer ses propriétés barrières sont une source potentielle de migration et doivent être conformes à leur propre réglementation.",
+        "keywords": ["cellulose régénérée", "migration", "risque", "monomère", "additif", "revêtement", "plastifiant"]
+      }
+    }
+  },
+  "cires": {
+    "name": "Cires",
+    "description": "Utilisées comme revêtements ou additifs (ex: papier paraffiné, revêtements de fromage).",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006"
+    ],
+    "risks": [
+      "RISK_MIGRATION_CIRES"
+    ],
+    "details": {
+      "RISK_MIGRATION_CIRES": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration Potentiels (Cires)",
+        "summary": "La migration dépend du type de cire, de sa pureté, des additifs présents et des conditions d'usage.",
+        "details": [
+          {
+            "Substance Type": "Cire elle-même",
+            "Risk": "Peut migrer physiquement (écaillage, fusion) ou chimiquement (composants de bas poids moléculaire)."
+          },
+          {
+            "Substance Type": "Huiles Minérales (MOSH/MOAH)",
+            "Risk": "Préoccupation majeure pour les cires minérales (paraffine, microcristalline). Voir 'RISK_MOSH_MOAH' (dans encres ou papier/carton)."
+          },
+          {
+            "Substance Type": "Hydrocarbures Aromatiques Polycycliques (HAP/PAH)",
+            "Risk": "Contaminants potentiels des cires minérales si le raffinage est insuffisant. Certains sont cancérogènes."
+          },
+          {
+            "Substance Type": "Additifs",
+            "Risk": "Antioxydants (ex: BHT), plastifiants, colorants peuvent être ajoutés et migrer."
+          },
+          {
+            "Substance Type": "Résidus de Solvants",
+            "Risk": "Si utilisés dans le processus d'application ou de purification."
+          }
+        ],
+        "keywords": [
+          "cire",
+          "wax",
+          "migration",
+          "risque",
+          "MOSH",
+          "MOAH",
+          "HAP",
+          "PAH",
+          "additif",
+          "contaminant",
+          "pureté"
+        ]
+      }
+    }
+  },
+  "colles": {
+    "name": "Colles et Adhésifs",
+    "description": "Utilisés pour assembler les emballages multicouches, étiquettes.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006"
+    ],
+    "risks": [
+      "RISK_MIGRATION_COLLES"
+    ],
+    "details": {
+      "RISK_MIGRATION_COLLES": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Colles)",
+        "summary": "Risque de migration de monomères résiduels (ex: formaldéhyde, isocyanates), additifs, ou impuretés. Particulièrement critique si la colle est en contact direct ou si la barrière fonctionnelle est défaillante.",
+        "details": "Les colles ne sont généralement pas destinées à être en contact direct avec l'aliment, mais la migration de leurs composants à travers les couches de l'emballage est un risque important. Les monomères résiduels (ex: formaldéhyde des colles urée-formol, isocyanates des polyuréthanes) et les additifs sont des sources potentielles de migration. La présence de Substances Non Intentionnellement Ajoutées (NIAS) issues de la fabrication de la colle est également une préoccupation. L'utilisation d'une barrière fonctionnelle est souvent nécessaire pour limiter cette migration.",
+        "keywords": ["colle", "adhésif", "migration", "risque", "formaldéhyde", "isocyanate", "NIAS", "additif", "barrière fonctionnelle"]
+      }
+    }
+  },
+  "encres": {
+    "name": "Encres d'Imprimerie",
+    "description": "Utilisées pour imprimer les informations sur les emballages.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006"
+    ],
+    "risks": [
+      "RISK_MIGRATION_ENCRES"
+    ],
+    "details": {
+      "RISK_MIGRATION_ENCRES": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Encres)",
+        "summary": "Migration de photoinitiateurs (encres UV), huiles minérales (MOSH/MOAH), solvants, métaux lourds, amines aromatiques primaires (AAP) depuis les encres. Risque accru avec les emballages recyclés.",
+        "details": "Les encres d'imprimerie, même si elles ne sont pas en contact direct avec l'aliment, peuvent contaminer ce dernier par 'set-off' (transfert de l'encre de la face extérieure à la face intérieure en contact avec l'aliment lors de l'empilement) ou par perméation à travers l'emballage. Les photoinitiateurs des encres UV, les huiles minérales (MOSH/MOAH) des encres à base d'huile, les solvants résiduels, les métaux lourds des pigments et les amines aromatiques primaires (AAP) sont des substances préoccupantes. L'utilisation de papiers/cartons recyclés augmente le risque de contamination par les encres.",
+        "keywords": ["encre", "impression", "migration", "risque", "photoinitiateur", "MOSH", "MOAH", "solvant", "métal lourd", "AAP", "set-off", "recyclé"]
+      }
+    }
+  },
+  "liege": {
+    "name": "Liège",
+    "description": "Bouchons, revêtements.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "COE_RES_AP_2004_2_LIEGE"
+    ],
+    "risks": [
+      "RISK_MIGRATION_LIEGE"
+    ],
+    "details": {
+      "COE_RES_AP_2004_2_LIEGE": {
+        "type": "Recommendation",
+        "scope": "CoE",
+        "name": "Résolution CoE ResAP(2004)2 (Liège)",
+        "summary": "Résolution du Conseil de l'Europe fournissant des recommandations techniques pour les bouchons et autres articles en liège destinés au contact alimentaire. Vise à minimiser les risques sanitaires et l'altération organoleptique.",
+        "link": "https://freepub.edqm.eu/publications",
+        "details": "Aborde potentiellement les aspects suivants (à vérifier dans le texte complet de la résolution) :\n- Limites pour les contaminants spécifiques (ex: TCA, pesticides, métaux lourds).\n- Critères de pureté pour les matières premières.\n- Bonnes pratiques de fabrication spécifiques au liège.\n- Tests de migration sensorielle ('goût de bouchon').\n- Utilisation de colles/agglomérants pour les bouchons techniques.",
+        "keywords": ["liège", "cork", "bouchon", "Conseil Europe", "résolution", "ResAP(2004)2", "TCA", "goût de bouchon", "recommandation"]
+      },
+      "RISK_MIGRATION_LIEGE": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Liège)",
+        "summary": "Risque de migration de substances issues des traitements (ex: chlore, soufre), des liants (pour liège aggloméré), ou de contaminants microbiologiques (TCA).",
+        "details": "Le liège peut être une source de contamination chimique (résidus de traitements, composants des liants pour liège aggloméré) ou microbiologique. Le 2,4,6-trichloroanisole (TCA), responsable du 'goût de bouchon', est un contaminant bien connu du liège. La migration de substances naturelles du liège (tanins, phénols) peut également altérer les propriétés organoleptiques de l'aliment.",
+        "keywords": ["liège", "migration", "risque", "TCA", "chlore", "soufre", "liant", "organoleptique", "goût de bouchon"]
+      }
+    }
+  },
+  "resines_echangeuses_ions": {
+    "name": "Résines Échangeuses d'ions",
+    "description": "Utilisées pour la purification de l'eau et d'autres liquides alimentaires.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "COE_RES_AP_2004_3_RESINES"
+    ],
+    "risks": [
+      "RISK_MIGRATION_RESINES_ECHANGE"
+    ],
+    "details": {
+      "COE_RES_AP_2004_3_RESINES": {
+        "type": "Recommendation",
+        "scope": "CoE",
+        "name": "Résolution CoE ResAP(2004)3 (Résines échangeuses/Adsorbantes)",
+        "summary": "Résolution du Conseil de l'Europe fournissant un cadre technique détaillé pour l'évaluation de l'innocuité des résines échangeuses d'ions et adsorbantes utilisées dans le traitement des denrées alimentaires.",
+        "link": "https://freepub.edqm.eu/publications",
+        "details": "Points clés couverts par la résolution et son document technique (à vérifier dans le texte complet) :\n- Définitions et champ d'application.\n- Listes de substances autorisées pour la fabrication (monomères, agents de réticulation, agents de fonctionnalisation, solvants de polymérisation, etc.).\n- Critères de pureté pour les substances et pour la résine finie.\n- Restrictions d'utilisation (ex: limites de température, types d'aliments).\n- Méthodes de test standardisées pour évaluer la migration de substances depuis la résine (impuretés, monomères résiduels, produits de dégradation). Inclut des conditions de pré-traitement ('rinçage') de la résine.\n- Limites de migration spécifiques (LMS) pour certaines substances.",
+        "keywords": ["Conseil Europe", "résolution", "ResAP(2004)3", "résine échangeuse ions", "liste indicative", "adsorbant", "pureté", "test migration", "LMS", "recommandation"]
+      },
+      "RISK_MIGRATION_RESINES_ECHANGE": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Résines Échangeuses d'ions)",
+        "summary": "Risque de migration de monomères résiduels, de produits de dégradation, ou d'impuretés issues de la fabrication des résines. Contamination microbiologique si mauvaise régénération.",
+        "details": "Les résines échangeuses d'ions peuvent libérer des monomères résiduels (ex: styrène, divinylbenzène), des produits de dégradation ou des impuretés. La qualité de la résine et le respect des conditions d'utilisation et de régénération sont essentiels pour minimiser la migration. Une mauvaise régénération peut également entraîner une contamination microbiologique.",
+        "keywords": ["résine échangeuse ions", "migration", "risque", "monomère", "NIAS", "microbiologique", "régénération"]
+      }
+    }
+  },
+  "silicones": {
+    "name": "Silicones",
+    "description": "Moules de cuisson, ustensiles, joints.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "ARRETE_FR_1992_11_25_SILICONE",
+      "COE_RES_AP_2004_5_SILICONE"
+    ],
+    "risks": [
+      "RISK_MIGRATION_SILICONES"
+    ],
+    "details": {
+      "ARRETE_FR_1992_11_25_SILICONE": {
+        "type": "Regulation",
+        "scope": "FR",
+        "name": "Arrêté FR du 25 novembre 1992 (Silicones)",
+        "summary": "Réglementation française spécifique pour les objets en élastomère de silicone contact alimentaire. Contient liste positive, critères de pureté, LMG, LMS et conditions de test.",
+        "link": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000361399/",
+        "details": "Points clés :\n- Annexe I: Liste positive de constituants (monomères, charges, additifs, colorants, catalyseurs...).\n- Article 3: Exigences de pureté pour le produit fini (Matières organiques volatiles libres ≤ 0,5 % ; Peroxydes : exigences spécifiques).\n- Article 4: Limite de Migration Globale (LMG) = 10 mg/dm² ou 60 mg/kg.\n- Article 5 & Annexe II: Limites de Migration Spécifiques (LMS) pour certaines substances (ex: composés organostanniques ≤ 0,1 mg/kg exprimé en étain).\n- Annexe III: Conditions de test (simulants, temps, températures - souvent plus sévères que 10/2011, ex: 2h à 100°C pour LMG avec simulants aqueux).",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              20,
+              28,
+              47
+            ]
+          }
+        ],
+        "keywords": [
+          "arrêté",
+          "france",
+          "silicone",
+          "élastomère",
+          "liste positive",
+          "LMS",
+          "LMG",
+          "test",
+          "volatiles",
+          "peroxydes",
+          "organo-étain",
+          "1992"
+        ]
+      },
+      "COE_RES_AP_2004_5_SILICONE": {
+        "type": "Recommendation",
+        "scope": "CoE",
+        "name": "Résolution CoE ResAP(2004)5 (Silicones)",
+        "summary": "Résolution du Conseil de l'Europe fournissant un cadre technique pour l'évaluation des silicones contact alimentaire.",
+        "link": "https://freepub.edqm.eu/publications",
+        "details": "Contient typiquement (voir document technique) :\n- Listes de substances classées.\n- Critères de pureté.\n- LMG et LMS.\n- Méthodes de test.",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              27,
+              28,
+              31
+            ]
+          }
+        ],
+        "keywords": [
+          "silicone",
+          "élastomère",
+          "Conseil Europe",
+          "résolution",
+          "ResAP(2004)5",
+          "recommandation",
+          "liste positive",
+          "LMS",
+          "LMG"
+        ]
+      },
+      "RISK_MIGRATION_SILICONES": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Silicones)",
+        "summary": "Principal risque: migration de siloxanes cycliques volatils (D4, D5, D6) à haute température, ou de produits de dégradation. Moins réactif que les caoutchoucs organiques.",
+        "details": "Les silicones sont généralement considérés comme très inertes. Le risque principal de migration concerne les siloxanes cycliques volatils (D4, D5, D6) qui peuvent être présents comme impuretés ou produits de dégradation, particulièrement lors d'une utilisation à haute température (ex: cuisson). Ces substances font l'objet d'évaluations toxicologiques. La migration d'additifs (pigments, charges) et l'altération organoleptique sont d'autres risques potentiels.",
+        "keywords": ["silicone", "migration", "risque", "siloxane", "D4", "D5", "D6", "additif", "organoleptique", "chaleur"]
+      }
+    }
+  },
+  "textiles": {
+    "name": "Textiles",
+    "description": "Filtres, sacs, toiles d'essuyage.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006"
+    ],
+    "risks": [
+      "RISK_MIGRATION_TEXTILES"
+    ],
+    "details": {
+      "RISK_MIGRATION_TEXTILES": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration Potentiels (Textiles)",
+        "summary": "Plusieurs types de substances peuvent migrer depuis un textile vers l'aliment, surtout en conditions humides ou chaudes.",
+        "details": [
+          {"Substance Type": "Colorants", "Risk": "Migration de colorants non fixés ou migration de leurs produits de dégradation (ex: PAA depuis colorants azoïques)."},
+          {"Substance Type": "Azurants Optiques", "Risk": "Migration si contact humide."},
+          {"Substance Type": "Auxiliaires de Traitement", "Risk": "Résidus d'agents de blanchiment, d'apprêts, d'agents de finissage (ex: formaldéhyde)."},
+          {"Substance Type": "Monomères/Oligomères", "Risk": "Si fibres synthétiques (PET, PA, PP...), migration possible. Les règles du Règl. 10/2011 peuvent s'appliquer par analogie."},
+          {"Substance Type": "Encres (si imprimé)", "Risk": "Migration indirecte par set-off ou perméation de composants de l'encre (voir 'encres_details.json')."},
+          {"Substance Type": "Métaux Lourds", "Risk": "Contamination issue des fibres, colorants ou traitements."},
+          {"Substance Type": "Autres Additifs", "Risk": "Agents antimicrobiens, retardateurs de flamme (si utilisés, peu probable pour contact alimentaire direct)."}
+        ],
+        "keywords": [
+          "textile",
+          "migration",
+          "risque",
+          "colorant",
+          "azurant optique",
+          "apprêt",
+          "finissage",
+          "monomère",
+          "oligomère",
+          "encre",
+          "métal lourd",
+          "PAA"
+        ]
+      }
+    }
+  },
+  "vernis_revetements": {
+    "name": "Vernis et Revêtements",
+    "description": "Revêtements intérieurs de boîtes métalliques, emballages papier/carton.",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006",
+      "REG_2018_213_BPA_VERNIS",
+      "REG_1895_2005_EPOXY",
+      "COE_RES_AP_2004_1_VERNIS"
+    ],
+    "risks": [
+      "RISK_MIGRATION_VERNIS_REVET"
+    ],
+    "details": {
+      "REG_2018_213_BPA_VERNIS": {
+        "type": "Regulation",
+        "scope": "EU",
+        "name": "Règlement (UE) 2018/213 (BPA dans Vernis/Revêtements)",
+        "summary": "Règlement UE spécifique fixant une Limite de Migration Spécifique (LMS) très stricte pour le Bisphénol A depuis les vernis et revêtements appliqués aux MCDA.",
+        "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32018R0213",
+        "details_limit": {
+          "Substance": "Bisphénol A (BPA)",
+          "Limit": "LMS = 0,05 mg/kg d'aliment"
+        },
+        "scope_details": "S'applique aussi aux matériaux plastiques. Interdiction totale du BPA dans les biberons en polycarbonate maintenue.",
+        "requirement_doc": "Une DoC spécifique attestant le respect de cette LMS BPA est requise.",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              15,
+              35,
+              43
+            ]
+          }
+        ],
+        "keywords": [
+          "BPA",
+          "bisphénol A",
+          "vernis",
+          "revêtement",
+          "plastique",
+          "LMS",
+          "limite",
+          "règlement",
+          "2018/213",
+          "harmonisé",
+          "DoC BPA"
+        ]
+      },
+      "REG_1895_2005_EPOXY": {
+        "type": "Regulation",
+        "scope": "EU",
+        "name": "Règlement (CE) n° 1895/2005 (Dérivés Époxydiques)",
+        "summary": "Règlement UE spécifique limitant/interdisant l'utilisation de certains dérivés époxydiques (BADGE, BFDGE, NOGE) dans les MCDA (concerne souvent vernis, revêtements, colles, plastiques).",
+        "link": "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32005R1895",
+        "details_limits": [
+          {
+            "Substance": "BFDGE (Bisphénol F diglycidyl éther)",
+            "Limit": "Interdit (Non détectable, LD ≤ 0.01 mg/kg)"
+          },
+          {
+            "Substance": "NOGE (Novolac glycidyl éthers)",
+            "Limit": "Interdit (Non détectable, LD ≤ 0.01 mg/kg)"
+          },
+          {
+            "Substance": "BADGE (Bisphénol A diglycidyl éther)",
+            "Limit": "LMS (BADGE + dérivés H2O + dérivés chlorhydrine) = 9 mg/kg"
+          },
+          {
+            "Substance": "Dérivés Chlorhydrine de BADGE seuls",
+            "Limit": "LMS = 1 mg/kg (sous-limite dans les 9 mg/kg totaux)"
+          }
+        ],
+        "requirement_doc": "La conformité à ce règlement doit être documentée.",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              26,
+              45
+            ]
+          }
+        ],
+        "keywords": [
+          "époxy",
+          "epoxy",
+          "BADGE",
+          "BFDGE",
+          "NOGE",
+          "vernis",
+          "revêtement",
+          "colle",
+          "plastique",
+          "LMS",
+          "limite",
+          "interdit",
+          "règlement",
+          "1895/2005",
+          "harmonisé"
+        ]
+      },
+      "COE_RES_AP_2004_1_VERNIS": {
+        "type": "Recommendation",
+        "scope": "CoE",
+        "name": "Résolution CoE ResAP(2004)1 (Vernis/Revêtements)",
+        "summary": "Résolution du Conseil de l'Europe fournissant un cadre technique pour l'évaluation des vernis et revêtements contact alimentaire.",
+        "link": "https://freepub.edqm.eu/publications",
+        "details": "Contient probablement des listes de substances (monomères, additifs...), critères de pureté, LMG/LMS et méthodes de test. Référence technique utile en l'absence de réglementation UE globale.",
+        "note_applicability": "Le Mémento CETIM (p.31) indique que cette résolution est considérée comme inapplicable ou inappropriée par certains industriels et renvoie aux guides CEPE.",
+        "source_refs": [
+          {
+            "doc": "Mémento CETIM",
+            "page": [
+              31
+            ]
+          }
+        ],
+        "keywords": [
+          "vernis",
+          "revêtement",
+          "Conseil Europe",
+          "résolution",
+          "ResAP(2004)1",
+          "recommandation",
+          "liste positive",
+          "LMS",
+          "LMG"
+        ]
+      },
+      "RISK_MIGRATION_VERNIS_REVET": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration (Vernis/Revêtements)",
+        "summary": "Migration de composants non-réagis, additifs, solvants résiduels ou produits de dégradation depuis la couche appliquée vers l'aliment.",
+        "details": [
+          {
+            "Substance Type": "Monomères/Oligomères",
+            "Risk": "Résidus issus de la polymérisation incomplète des résines (époxy, polyester, acrylique...)."
+          },
+          {
+            "Substance Type": "Solvants",
+            "Risk": "Solvants utilisés lors de l'application qui n'ont pas été complètement évaporés."
+          },
+          {
+            "Substance Type": "Catalyseurs/Initiateurs",
+            "Risk": "Résidus des substances utilisées pour la polymérisation/réticulation."
+          },
+          {
+            "Substance Type": "Additifs",
+            "Risk": "Plastifiants, pigments, charges, etc."
+          },
+          {
+            "Substance Type": "Néoformés",
+            "Risk": "Produits de réaction ou dégradation formés pendant la cuisson/réticulation ou l'interaction avec l'aliment."
+          },
+          {
+            "Substance Type": "BPA / Epoxy",
+            "Risk": "Voir règlements spécifiques REG_2018_213_BPA_VERNIS et REG_1895_2005_EPOXY."
+          }
+        ],
+        "keywords": [
+          "vernis",
+          "revêtement",
+          "migration",
+          "risque",
+          "monomère",
+          "oligomère",
+          "solvant",
+          "additif",
+          "néoformé",
+          "BPA",
+          "époxy"
+        ]
+      }
+    }
+  },
+  "verre": {
+    "name": "Verre (seul)",
+    "description": "Bouteilles, bocaux, verres à boire (non décorés).",
+    "regulations": [
+      "REG_1935_2004",
+      "REG_2023_2006"
+    ],
+    "risks": [
+      "RISK_MIGRATION_VERRE"
+    ],
+    "details": {
+      "RISK_MIGRATION_VERRE": {
+        "type": "Risk Information",
+        "scope": "General",
+        "name": "Risques de Migration / Contamination (Verre)",
+        "summary": "Le verre non décoré est très inerte. Risque principal : migration de plomb (Pb) et cadmium (Cd) depuis les décorations émaillées ou le verre cristal au plomb. Risque physique de bris.",
+        "details": [
+          {"Source": "Décorations Émaillées", "Risk": "Si les émaux contiennent du plomb ou du cadmium et sont en contact direct avec l'aliment, ces métaux peuvent migrer, surtout avec des aliments acides."},
+          {"Source": "Verre Cristal au Plomb", "Risk": "Le cristal traditionnel contient du plomb. Le contact prolongé avec des boissons acides ou alcoolisées peut entraîner une migration significative de plomb."},
+          {"Source": "Physique", "Risk": "Bris de verre, formation d'éclats pouvant contaminer l'aliment."}
+        ],
+        "keywords": ["verre", "migration", "risque", "plomb", "cadmium", "décoration", "cristal", "bris"]
+      }
+    }
+  }
+}
